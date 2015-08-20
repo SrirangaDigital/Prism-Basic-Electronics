@@ -1,0 +1,1304 @@
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \LARGE\bfseries \@chapapp\space \thechapter
+	\vskip 4pt
+        \hrule height 2pt
+        \par\nobreak
+        \vskip 5\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \huge \bfseries #1\par\nobreak
+\vskip 5pt
+
+\hrule height 2pt
+ \vskip 10\p@  
+  }}
+\makeatother
+
+\chapter{Digital Electronics}\label{chap5}
+\addtocontents{toc}{\protect\contentsline{chapter}{\protect Chapter \numberline{\thechapter.}
+  Digital Electronics}{\thepage--\pageref{5end}}}  
+
+\section{Introduction}\label{sec5.1}
+
+In general, anything which contains information is called signals. Most of the signals available in nature are analog or continuous signals. An analog signal may acquire any value (continuous) in a range of the independent variable (usually time). A discrete signal is the sampled version of an analog signal usually at equal regular intervals known as sampling period T. Fig.~\ref{fig5.1} shows the process of discretising (or sampling) an analog signal.
+\begin{center}
+{\bf Figure 5.1}
+\end{center}
+
+Then each sample of discrete signal is converted into a string of 0's and 1's (digitized) and the obtained signal is called digital signal. The digital signals could be processed with high speed with no disturbance from the noise. Digital signals could be processed independently at anytime other than the sampling period and is called off-line processing. If the signal is to be processed within the constraint of duration of time (eg: during sampling period), it is called on-line processing.
+
+Digital signals (i.e., string of 0's and 1's) are processed using digital systems like digital computers, digital signal processors etc. using the concept of binary numbers and Boolean algebra (which refers ordinary algebra in some respects). The great advantage of digital signal is, it is less susceptible to disturbances (noise) compared to analog signal.
+
+\section{Switching and Logic Levels}\label{sec5.2}
+
+The digital systems are basically a discrete information (digital signal) processing systems. The signals may be in the form of voltage or current. The signals in all present day digital systems may have only two discrete values and are called binary. The binary may be either logic `0' or logic `1'. A logic value of 0 or 1 is often called a binary digit or bit. If an application requires more than two discrete levels, additional bits may be used. With `$n$' bits, we can have $2^{n}$ discrete levels or combinations.
+
+Consider the two logic values of a binary signal shown in Fig.~\ref{fig5.2} below. One value must be higher than the other because the two values must be different in order to distinguish them.
+\begin{center}
+{\bf Figure 5.2}
+\end{center}
+
+We designate the higher level of signal by $H$ and lower level by $L$. So there are 2 choices for the assignment of logic values. Choosing the higher level of signal $H$ as logic $L$ as in Fig.~\ref{fig5.2}(a) results in positive logic and choosing the lower level of signal $L$ as logic $l$ as in Fig.~\ref{fig5.2}(b) results in negative logic.
+
+Consider a simple circuit shown in Fig.~\ref{fig5.3} below. The switch $S$ may be OFF or ON. The output voltage $\rmV_{\rmo}=5\rmV$ (HIGH). When $S$ is OFF and $\rmV_{\rmo}=0\rmV$ (LOW) when $S$ in ON. Assume that OFF as logic 0 and ON as logic 1 at the input and low as logic 0 and HIGH as logic 1 at the output, the circuit shown in Fig.~\ref{fig5.3} acts like an inverter i.e., the inpout 0 results in 1 at the output and vice versa. such circuits are known as logic gates and the particular gate under consideration is an inverter or NOT gate. The symbol and truth table of inverter or NOT gate is shown in Fig.~\ref{fig5.3}(b) below.
+\begin{center}
+{\bf Figure 5.3}
+\end{center}
+
+\smallskip
+\itheading{Digital Waveform}
+
+In electronic switching circuits, logic 0 and 1 are represented by voltage or current levels which are a range of values with clear margin between the high end of LOW and low end of HIGH. For eg. if logic 0 is ideally represented as 0V and logic 1 as 5V, the actual voltage ranges may be 0 to 0.2V and 3.7V to 5V with a forbidden region of 3.5V (i.e., $3.7-0.2=3.5\rmV$).
+
+The digital waveforms for logic levels (ideal and actual) are shown in Fig.~\ref{fig5.4} below.
+\begin{align*}
+\text{Ideal~:}\quad & \text{Logic } 0=\rmV_{\rmo\rmL}=0\rmV\\[3pt]
+                    & \text{Logic } 1=\rmV_{\rmo\rmH}=5\rmV\\[5pt]
+\text{Actual~:}\quad & \rmV_{\rmo\rmL} <\text{ Logic } 0 <\rmV_{\rmo\rmL_{\max}}\\[3pt]
+\therefore\quad & 0\leq \text{ logic } 0<0.2\rmV\\[3pt]
+& \rmV_{\rmo\rmH_{\text{min}}}<\text{ Logic } 1< \rmV_{\rmo \rmH}\\[3pt]
+\therefore\quad & 3.7\rmV < \text{ Logic } 1< 5\rmV
+\end{align*}
+$\therefore$~ Forbidden region = $(\rmV_{\rmo\rmH_{\min}}-\rmV_{\rmo\rmL_{\max}})=3.7-0.1=3.5\rmV$
+
+In the forbidden region the signal cannot be recognized as either logic 0 or logic 1.
+\begin{center}
+{\bf Figure 5.4}
+\end{center}
+
+\smallskip
+\itheading{Decimal Number System}
+
+In regular day to day transactions, we use decimal number system in which only ten digits are used i.e., 0 to 9. Decimal number system is base 10 or radix 10 number system. The general form of a decimal number is,
+$$
+\rmd_{\rmm_{\rmc}}\rmd_{\rmm-1}\ldots \rmd_{3}\rmd_{2}\rmd_{1}\rmd_{0}\cdot \rmd_{-1}\rmd_{-2}\ldots \rmd_{-n}
+$$
+and its equivalent is given by,
+\begin{align*}
+\rmd_{\rmm}\times 10^{\rmm} &+ \rmd_{\rmm-1}\times 10^{\rmm-1}+\cdots+\rmd_{3}\times 10^{3}+\rmd_{2}\times 10^{2}+\rmd_{1}\times 10^{1}+\rmd_{0}\times 10^{0}\\
+& + \rmd_{-1}\times 10^{-1}+d_{-2}\times 10^{-2}+\cdots+\rmd_{-n}\times 10^{-n}
+\end{align*}
+
+For example, consider a decimal number $(2504.187)_{10}$. The subscript or indicates the given number is in decimal or base 10 or radix 10 system. Its equivalents is given by,
+\begin{align*}
+&= 2\times 10^{3}+5\times 10^{2}+0\times 10^{1}+4\times 10^{0}+1\times 10^{-1}+8\times 10^{-2}+7\times 10^{-3}\\[3pt]
+&= 2000+500+0+4+0.1+0.08+0.007\\[3pt]
+&= (2504.187)_{\rmd}.
+\end{align*}
+
+In decimal number system instead of $\rmd$ we can use 10 also.
+
+\smallskip
+\itheading{Binary Number System}
+
+In a digital electronic system, the active devices used are operated as switches and have only two states i.e., ON and OFF. For this reason, the binary numbering system is used in which only 2 digits i.e., 0 and 1 are allowed. So binary number system is base 2 or radix 2 number system.
+
+The general form of a binary number is,
+$$
+\rmb_{\rmm}\rmb_{\rmm-1}\ldots \rmb_{3}\rmb_{2}\rmb_{1}\rmb_{0}\cdot \rmb_{-1}\rmb_{-2}\ldots \rmb_{-n}
+$$
+and decimal equivalent is given by,
+\begin{align*}
+\rmb_{\rmm}\times 2^{\rmm} &+ \rmb_{\rmm-1}\times 2^{\rmm-1}+\cdots+\rmb_{3}\times 2^{3}+\rmb_{2}\times 2^{2}+b_{1}\times 2^{1}+\rmb_{0}\times 2^{0}\\[3pt]
+&+ \rmb_{-1}\times 2^{-1}+\rmb_{2}\times 2^{-2}+\cdots+\rmb_{-n}\times 2^{-n}
+\end{align*}
+
+For example, consider a binary number $=(1~1~0~1~1\,.\,1~1~0~1)_{2}$.
+
+The subscript 2 or $\rmb$ indicates that the given number is in binary or base 2 or radix 2 system. Its decimal equivalent is,
+\begin{align*}
+&= 1\times 2^{4}+14\times 2^{3}+04\times 2^{2}+1\times 2^{1}+1\times 2^{0}\\
+&\quad +1\times 2^{-1}+1\times 2^{-2}+0\times 2^{-3}+1\times 2^{-4}\\
+&=16+8+0+2+1+0.5+0.25+0+0.0625\\
+&=(27.8125)_{10}
+\end{align*}
+
+The subscript 10 indicates that the number is in decimal or base 10 or radix 10 system.
+
+In a binary number, each digit is called bit.
+
+The left most bit of a binary number is called most significant bit (MSB) and right most bit is called least significant bit (LSB).
+
+\smallskip
+\itheading{Octal and Hexadecimal Numbers}
+
+Decimal (base 10 or radix 10) number system is must because, we use it in day-to-day transactions and binary (base 2 or radix 2) is important because binary numbers can be processed directly by digital system. Number in other radices or bases are not often processed directly, but they may be important for documentation or other purposes.
+
+In particular, the radix 8 and radix 16 provide simple shorthand representations of multibit numbers in a digital system. The radix-8 system is also called an octal system and radix-16 system is also called hexadecimal system. The octal system needs 8 digits (0 to 9 and A to F. A to F are used to represent 10 to 15 respectively).
+
+The general form of are octal number is,
+$$
+\rmO_{\rmm}\rmO_{\rmm-1}\ldots \rmO_{3}\rmO_{2}\rmO_{1}\rmO_{0}\cdot \rmO_{-1}\rmO_{-2}\ldots \rmO_{-n}
+$$
+and its decimal equivalent is given by,
+\begin{align*}
+\rmO_{\rmm}\times 8^{\rmm} &+ \rmO_{\rmm-1}\times 8^{\rmm-1}+\cdots+\rmO_{3}\times 8^{3}+\rmO_{2}\times 8^{2}+\rmO_{1}\times 8^{1}+\rmO_{0}\times 8^{0}\\
+&+ \rmO_{-1}\times 8^{-1}+\rmO_{-2}\times 8^{-2}+\cdots+\rmO_{-\rmn}\times 8^{-\rmn}
+\end{align*}
+
+For example consider a number $=(736.52)_{0}$. The subscript `8' or `O' indicates that the given number is in octal system. Its decimal equivalent is given by,
+\begin{align*}
+&= 7\times 8^{2}+3\times 8^{1}+6\times 8^{0}+5\times 8^{-1}+2\times 8^{-2}\\
+&= 448+24+6+0.625+0.03125\\
+&= (478.65625)_{10}.
+\end{align*}
+
+Similarly, the general form of a hexadecimal number is given by,
+$$
+\rmH_{\rmm}\rmH_{\rmm-1}\ldots \rmH_{3}\rmH_{2}\rmH_{1}\rmH_{0}\cdot \rmH_{-1}\rmH_{-2}\ldots \rmH_{-\rmn}
+$$
+and its decimal equivalent is given by,
+\begin{align*}
+\rmH_{\rmm}\times 16^{\rmm} &+ \rmH_{\rmm-1}\times 16^{\rmm-1}+\cdots+\rmH_{3}\times 16^{3}+\rmH_{2}\times 16^{2}+\rmH_{1}\times 16^{1}+\rmH_{0}\times 16^{0}\\
+&+ \rmH_{-1}\times 16^{-1}+\rmH_{-2}\times 16^{-2}+\cdots \rmH_{-\rmn}\times 16^{\rmn}.
+\end{align*}
+
+For example, consider a hexadecimal number (A3F2.5E)$_{16}$ = (A3F2.5E)$_{\rmH}$. The subscript 16 or H indicates that the given number is in hexadecimal system. Its decimal equivalent is given by,
+\begin{align*}
+&= 10\times 16^{3}+3\times 16^{2}+15\times 16^{1}+2\times 16^{0}+5\times 16^{-1}+14\times 16^{-2}\\
+&= (41970.367875)_{10}.
+\end{align*}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.1}
+Convert the following binary numbers into decimal system.
+
+\medskip
+\noindent
+(i)~ (1 0 1 1)$_{2}$\hfil~~ (ii)~ (1 1 1 0 1\,.\,0 1)$_{2}$\hfil~~
+(iii)~  (1 1 1 1 1 0 1 0 1)$_{2}$\hfil~~ (iv)~ (1 0 1 0 1 0\,.\,1 0 1)$_{2}$
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] (1 0 1 1)$_{2}$
+
+\qquad~~~~~~~~ = $1\times 2^{3}+0\times 2^{2}+1\times 2^{1}+1\times 2^{0}$
+
+\qquad~~~~~~~~ = (1 1)$_{10}$
+
+\item[(ii)]
+\begin{tabbing}
+\= (1 1 1 0 1\,.\,0 1)$_{2}$\\[3pt]
+\> = $1\times 2^{4}+1\times 2^{3}+1\times 2^{2}+0\times 2^{1}+1\times 2^{0}+0\times 2^{-1}+1\times 2^{-2}$\\[3pt]
+\> = $(29.25)_{10}$
+\end{tabbing}
+
+\item[(iii)]
+\begin{tabbing}
+\= (1 1 1 1 1 0 1 0 1)$_{2}$\\[3pt]
+\>= $1\times 2^{8}+1\times 2^{7}+1\times 2^{6}+1\times 2^{5}+1\times 2^{4}+0\times 2^{3}+$\\[3pt]
+\>~ $1\times 2^{2}+0\times 2^{1}+1\times 2^{0}$\\[3pt]
+\>= $(501)_{10}$
+\end{tabbing}
+
+\item[(iv)]
+\begin{tabbing}
+\= (1 0 1 0 1 0\,.\,1 0 1)$_{2}$\\[3pt]
+\>= $1\times 2^{5}+0\times 2^{4}+1\times 2^{3}+0\times 2^{2}+1\times 2^{1}+0\times 2^{0}+$\\[3pt]
+\>~ $1\times 2^{-1}+0\times 2^{-2}+1\times 2^{-3}$\\[3pt]
+\>= $(42.625)_{10}$
+\end{tabbing}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.2}
+Convert the following octal numbers into decimal system.
+
+\medskip
+(i)~ $(7034)_{8}$\hfil (ii)~ $(624.36)_{8}$\hfil
+(iii) $(1616.16)_{8}$\hfil (iv)~  (1 0 1 0 1 0)$_{8}$
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] $(7034)_{8}$
+
+\qquad~~~~~~~~ = $7\times 8^{3}+0\times 8^{2}+3\times 8^{1}+4\times 8^{0}$
+
+\qquad~~~~~~~~ = $(3612)_{10}$
+
+\item[(ii)] 
+\begin{tabbing}
+\=$(624.36)_{8}$\\[3pt]
+\>= $6\times 8^{2}+2\times 8^{1}+4\times 8^{0}+3\times 8^{-1}+6\times 8^{-2}$\\[3pt]
+\>= $(404.46875)_{10}$
+\end{tabbing}
+
+\item[(iii)]
+\begin{tabbing}
+\=$(1616.16)_{8}$\\[3pt]
+\>= $1\times 8^{3}+6\times 8^{2}+1\times 8^{1}+6\times 8^{0}+1\times 8^{-1}+6\times 8^{-2}$\\[3pt]
+\>= $(910.21875)_{10}$
+\end{tabbing}
+
+\item[(iv)]
+\begin{tabbing}
+\=(1 0 1 0 1 0)$_{8}$\\[3pt]
+\>= $1\times 8^{5}+0\times 8^{4}+1\times 8^{3}+0\times 8^{2}+1\times 8^{1}+0\times 8^{0}$\\[3pt]
+\>= $(33288)_{10}$
+\end{tabbing}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.3}
+Convert the following hexadecimal numbers into decimal system.
+
+\medskip
+(i)~ (A38)$_{16}$\hfil (ii)~  (834.41)$_{16}$\hfil
+(iii)~ (ABC.D)$_{16}$\hfil (iv)~ (1 1 1 0\,.\,0 1)$_{16}$
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] (A38)$_{16}$
+
+\qquad~~~ = $10\times 16^{2}+3\times 16^{1}+8\times 16^{0}$
+
+\qquad~~~ = $(2616)_{10}$
+
+\item[(ii)]
+\begin{tabbing}
+\== $(834.41)_{10}$\\[3pt]
+\>= $8\times 16^{2}+3\times 16^{1}+4\times 16^{0}+4\times 16^{-1}+1\times 16^{-2}$\\[3pt]
+\>= $(2100.25390625)_{10}$
+\end{tabbing}
+
+\item[(iii)] 
+\begin{tabbing}
+\==(ABC.D)$_{16}$\\[3pt]
+\>= $10\times 16^{2}+11\times 16^{1}+12\times 16^{0}+13\times 16^{-1}$\\[3pt]
+\>= $(2748.8125)_{10}$
+\end{tabbing}
+
+\item[(iv)] 
+\begin{tabbing}
+\=(1 1 1 0\,.\,0 1)$_{16}$\\[3pt]
+\>= $1\times 16^{3}+1\times 16^{2}+1\times 16^{1}+0\times 16^{0}+0\times 16^{-1}+1\times 16^{-2}$\\[3pt]
+\>= $(4368.00390625)_{10}$
+\end{tabbing}
+\end{itemize}
+\end{solution}
+
+\section{Number Base Conversion}\label{sec5.3}
+
+In this section, we will discuss to convert a given number from one base to another.
+
+\smallskip
+\heading{(i) Decimal to any base-r}
+
+Consider a given decimal number has both integer and fractional parts. The integer part of the decimal number is converted to base-r integer number, by successive division by r and the fractional part is converted to base-r fractional number by successive multiplication by r. The integer part of the decimal number is to be successively divided by r, till the quotient becomes zero. The last remainder is the MSB. The remainders read from bottom to top, give the equivalent base-r integer number. The fractional part of the decimal number is to be successively multiplied by r, till the fractional part of the product comes to zero or till the desired accuracy is obtained. The first integer obtained is MSB. Thus the integers read from top to bottom, give the base-r fractional number.
+
+For example, consider a decimal number $(398.75)_{10}$. Say we want to convert it into binary. (i.e. base-r = 2). The integer part is 398 and fractional part is 75.
+
+To convert the integer part into binary, divide 398 by 2 successively, till the quotient becomes zero and collect the remainders from bottom to top as below.
+\begin{center}
+{\bf Figure}
+\end{center}
+
+To convert the fractional part into binary, multiply 75 by 2 successively, till the fractional part of the product becomes zero or till the desired accuracy is obtained as below.
+\begin{center}
+{\bf Figure}
+\end{center}
+
+Combining we get,
+$$
+(398.75)_{10}=(1~1~0~0~0~1~1~1~0\,.\,1~1)_{2}
+$$
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.4}
+Convert $(734)_{10}$ into binary.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.5}
+Perform the following $(2003)_{10}=(?)_{2}$.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}
+Convert $(1593.875)_{10}$ into binary.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.7}
+Convert $(0.705)_{10}$ into binary.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+
+This number cannot be represented accurately in binary.
+$$
+\therefore\quad (0.705)_{10}=(0\,.\,1~0~1~1~0~1~0~0~0~1\ldots)_{2}.
+$$
+\end{solution}
+
+\begin{problem}\label{prob5.8}
+Convert $(1~0~1~0\,.\,1~0~1)_{10}$ into binary.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.9}
+Convert $(934)_{10}$ into octal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.10}
+Perform the following $(2003)_{10}=(?)_{8}$.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.11}
+Convert $(11582.875)_{10}$ into octal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.12}
+Convert $(0.705)_{10}$ into octal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.13}
+Convert $(8899)_{10}$ into hexadecimal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.14}
+Perform the following~:
+$$
+(894867)_{10}=(?)_{16}
+$$
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.15}
+Convert $(7084.95)_{10}$ into hexadecimal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.16}
+Convert $(0.368)_{10}$ into hexadecimal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\begin{problem}\label{prob5.8}
+Convert $(4477.85)_{10}$ into hexadecimal.
+\end{problem}
+
+\begin{solution}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{solution}
+
+\smallskip
+\heading{(ii) Binary to octal~:}
+
+We know that in octal system, we use 8 digits i.e., 0 to 7. Since a string of 3 bits can take on 8 different combinations, it follows that each 3 bit string can be uniquely represented by one octal digit as shown in Table~\ref{tab7.1}.
+\begin{table}[H]
+\centering
+\caption{}\label{tab7.1}
+\renewcommand{\arraystretch}{1.2}
+\tabcolsep=15pt
+\begin{tabular}{|c|c|}
+\hline
+{\bf Octal} & {\bf Binary}\\[3pt]
+\hline
+0 & 000\\
+1 & 001\\
+2 & 010\\
+3 & 011\\
+4 & 100\\
+5 & 101\\
+6 & 110\\
+7 & 111\\
+\hline
+\end{tabular}
+\end{table}
+
+Thus, it is very easy to convert a binary number to an octal. Starting at the binary point, we simply separate the bits into groups of three and replace each group with the corresponding octal digit.
+\begin{align*}
+\text{For example~: Consider~} & (\underbrace{110}_{6} \ \ \underbrace{101}_{5} \ \ \underbrace{111}_{7} \ \ \underbrace{011}_{3} \ \ \underbrace{101}_{5} \ \ \underbrace{101}_{5} \ \ \underbrace{110}_{6})_{2}\\[4pt]
+&= (65735.56)_{8}
+\end{align*}
+
+In this procedure, we can freely add zeroes on the left of integer part and on the right of fractional part to make the total number of bits, multiples of 3 as required.
+
+\medskip
+\heading{(iii)~ Octal to binary~:}
+
+Converting from octal to binary is also very easy. We simply replace each octal digit with the corresponding 3 bit string.
+\begin{align*}
+\text{For example~:~} & \text{Consider~ } (7~4~6~3~.~2~4~5)_{8}\\[3pt]
+                      & \overbrace{111}^{7} \ \ \overbrace{100}^{4} \ \ \overbrace{110}^{6} \ \ \overbrace{011}^{3} \ \ \overbrace{010}^{2} \ \ \overbrace{100}^{4} \ \ \overbrace{101}^{5}\\[3pt]
+\therefore\quad (7463.245)_{8} &= (1~1~1~1~0~0~1~1~0~0~1~1\,.\,0~1~0~1~0~0~1~0~1)_{2}
+\end{align*}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.18}
+Convert $(1~1~0~1~1~1~1~0~1~0\,.\,0~1~1~1~0~1~1)_{2}$ into octal.
+\end{problem}
+
+\begin{solution}
+$\underbrace{011}_{3} \ \ \underbrace{011}_{3} \ \ \underbrace{111}_{7} \ \ \underbrace{010}_{2} \ \ \underbrace{011}_{3} \ \ \underbrace{101}_{5} \ \ \underbrace{100}_{4}$
+$$
+\therefore\quad (1~1~0~1~1~1~1~1~0~1~0\,.\,0~1~1~0~1~1)_{2}=(3372.354)_{8}
+$$
+\end{solution}
+
+\begin{problem}\label{prob5.19}
+Convert the following into octal.
+\begin{itemize}
+\item[(i)] $(1~1~0~1~1~0~1~1~1~1~0)_{2}$
+
+\item[(ii)] $(1~1~1~0~1~1~0~1~1~1~0\,.\,1~1~1~0~1)_{2}$
+
+\item[(iii)] $(0\,.\,1~1~1~1~0~1~0~1~1~0~1)_{2}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] $\underbrace{011}_{3} \ \ \underbrace{011}_{3} \ \ \underbrace{011}_{3} \ \ \underbrace{110}_{6}$
+
+\smallskip
+\qquad\quad~~~ $\therefore~ (1~1~0~1~1~0~1~1~1~1~0)_{2}=(3336)_{8}$
+
+\item[(ii)] $\underbrace{011}_{3} \ \ \underbrace{101}_{5} \ \ \underbrace{101}_{5} \ \ \underbrace{110}_{6} \ \ \underbrace{111}_{7} \ \ \underbrace{010}_{2}$
+
+\smallskip
+$\therefore~ (1~1~1~0~1~1~0~1~1~1~0\,.\,1~1~1~0~1)_{2}=(3556.72)_{8}$
+
+\item[(iii)] $0 \ \ \underbrace{111}_{7} \ \ \underbrace{101}_{5} \ \ \underbrace{011}_{3} \ \ \underbrace{010}_{2}$
+
+\smallskip
+$\therefore$~ $(0\,.\,1~1~1~1~0~1~0~1~1~0~1)_{2}=(0.7532)_{8}$
+\end{itemize}
+\end{solution}
+
+\heading{(iv)~ Binary to hexadecimal~:}
+
+In hexadecimal system, we use 16 digits. i.e., 0 to 7 and A to F. Since a string of 4 bits can take on 16 different combinations, it follows that each 4 bit string can be uniquely represented by one hexadecimal digit as shown in Table~\ref{tab5.2}.
+\begin{table}[H]
+\centering
+\caption{}\label{tab5.2}
+\renewcommand{\arraystretch}{1.2}
+\tabcolsep=10pt
+\begin{tabular}{|c|c|c|c|}
+\hline
+{\bf Hexadecimal} & {\bf Binary} & {\bf Hexadecimal} & {\bf Binary}\\[3pt]
+\hline
+0 & 0 0 0 0 & 8 & 1 0 0 0\\
+1 & 0 0 0 1 & 9 & 1 0 0 1\\
+2 & 0 0 1 0 & A & 1 0 1 0\\
+3 & 0 0 1 1 & B & 1 0 1 1\\
+4 & 0 1 0 0 & C & 1 1 0 0\\
+5 & 0 1 0 1 & D & 1 1 0 1\\
+6 & 0 1 1 0 & E & 1 1 1 0\\
+7 & 0 1 1 1 & F & 1 1 1 1\\
+\hline
+\end{tabular}
+\end{table}
+
+Thus, it is very easy to convert a binary number to hexadecimal. Starting at the binary point, we simply separate the bits into groups of 4 and replace each group with the corresponding hexadecimal digit.
+\begin{align*}
+\text{For example~: Consider~ } & (\underbrace{1~0~1~1}_{\rmB} \ \ \underbrace{0~1~1~1}_{7} \ \ \underbrace{1~0~1~1}_{\rmB} \ \ \underbrace{1~1~1~0}_{\rmE} \ \ \underbrace{1~1~1~0}_{\rmE} \ \ \underbrace{0~0~1~1}_{3})_{2}\\[3pt]
+&= \text{(B7BE.E3)}_{16} 
+\end{align*}
+
+In this procedure also, we can freely add zeroes on the left of integer part and on the right of fractional part to make the total number of bits, multiples of 4 as required.
+
+\smallskip
+\heading{(v)~ Hexadecimal to binary~:}
+
+Converting from hexadecimal to binary is also very easy. We simply replace each hexadecimal digit with the corresponding 4 bit string.
+\begin{align*}
+\text{For example~:~} &(\text{8BE6.7A})_{16}\\[3pt]
+& \overbrace{1~0~0~0}^{8} \ \ \overbrace{1~0~1~1}^{\rmB} \ \ \overbrace{1~1~1~0}^{\rmE} \ \ \overbrace{0~1~1~0}^{6} \ \ \overbrace{0~1~1~1}^{7} \ \ \overbrace{1~0~1~0}^{\rmA}\\[3pt]
+\therefore\quad (\text{8BE6.7A})_{16} &= (1~0~0~0 \ \ \ 1~0~1~1 \ \ \ 1~1~1~0 \ \ \ 0~1~1~0\,.\,0~1~1~1 \ \ \ 1~0~1~0)_{2}
+\end{align*}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.20}
+Convert (1 1 0 1 1 1 1 1 0 1 1 0 1 1\,.\,0 1 1 0 1)$_{2}$ into hexadecimal.
+\end{problem}
+
+\begin{solution}
+$\underbrace{0~0~1~1}_{3} \ \ \underbrace{0~1~1~1}_{7} \ \ \underbrace{1~1~0~1}_{\rmD} \ \ \underbrace{1~0~1~1}_{\rmB} \ \ \underbrace{0~1~1~0}_{6} \ \ \underbrace{1~0~0~0}_{8}$
+$$
+\therefore\quad (1~1~0~1~1~1~1~1~0~1~1~0~1~1\,.\,0~1~1~0~1)_{2}=(\text{37DB.68})_{16}
+$$
+\end{solution}
+
+\begin{problem}\label{prob5.21}
+Convert the following into hexadecimal.
+\begin{itemize}
+\item[(i)] (1 1 0 1 1 1 1 0 1\,.\,0 1)$_{2}$
+
+\item[(ii)] (1 1 0 1 1 1 1 0 1 0 1 1 1 0 1)$_{2}$
+
+\item[(iii)] (0\,.\,1 1 0 1 0 1 0 1 1 1 0 1 1)$_{2}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] $\underbrace{0~0~0~1}_{1} \ \ \underbrace{1~0~1~1}_{\rmB} \ \ \underbrace{1~1~0~1}_{\rmD} \ \ \underbrace{0~1~0~0}_{4}$
+
+\smallskip
+\qquad\quad~~~ $\therefore$~ (1 1 0 1 1 1 1 0 1\,.\,0 1)$_{2}$ = (1BD.4)$_{16}$
+
+\item[(ii)] $\underbrace{0~1~1~0}_{6} \ \ \underbrace{1~1~1~1}_{\rmF} \ \ \underbrace{0~1~0~1}_{5} \ \ \underbrace{1~1~0~1}_{\rmD}$
+
+\smallskip
+$\therefore$~ (1 1 0 1 1 1 1 0 1 0 1 1 1 0 1)$_{2}$ = (6F5D)$_{16}$
+
+\item[(iii)] $0 \ \ \underbrace{1~1~0~1}_{\rmD} \ \ \underbrace{0~1~0~1}_{5} \ \ \underbrace{1~1~0~1}_{\rmD} \ \ \underbrace{1~0~0~0}_{8}$
+
+\smallskip
+$\therefore$~ (0\,.\,1 1 0 1 0 1 0 1 1 1 0 1 1)$_{2}$ = (0.D5D8)$_{16}$
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.22}
+Find the binary, octal and hexadecimal equivalent of the following decimal numbers.
+\begin{itemize}
+\item[(i)] (345.75)$_{10}$
+
+\item[(ii)] (44355)$_{10}$
+
+\item[(iii)] (0.7585)$_{10}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] (345.75)$_{10}$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(ii)] (44355)$_{10}$
+\begin{center}
+{\bf Figure}
+\end{center}
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iii)] $(0.7585)_{10}$
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{itemize}
+\end{solution}
+
+\section{Complements}\label{sec5.4}
+
+For a given number N in base-r, we can define two types of complements.
+\begin{itemize}
+\item[(i)] r's complement
+
+\item[(ii)] (r$-$1)'s complement
+\end{itemize}
+
+With the concept of complements, the subtraction operations and logical manipulations become easy in digital computers.
+
+Consider a given positive number N in base-r with an integer part of n digits and a fractional part of m digits. Then the r's complement is given by,
+\begin{alignat*}{2}
+&= (\rmr^{\rma}-\rmN) &\qquad& ;\text{ for~ } \rmN\neq 0\\
+&= 0                 &\qquad& ; \text{ for~ } \rmN = 0
+\end{alignat*}
+and the (r$-$1)'s complement is given by,
+$$
+=(\rmr^{\rmn}-\rmr^{-\rmm}-\rmN)
+$$
+
+For example, consider a decimal number (5734.35)$_{10}$. Here base r = 10. So we can define 10's complement (r's complement) and 9's complement ((r$-1$1)'s complement) for this number. In (5734.35)$_{10}$, number of digits in integer part is n = 4 and that in fractional part is m = 2.
+\begin{align*}
+\therefore\quad \text{10's complement of } (5734.35)_{10} &= 10^{4}-5734.35\\[3pt]
+ &= (10000-5734.35)_{10}\\[3pt]
+ &= 4265.65\\[3pt]
+\text{and 9's complement of } (5734.35)_{10} &= 10^{4}-10^{-2}-5734.35\\[3pt]
+&= (9999.99-5734.35)_{10}\\[3pt]
+&= 4265.64
+\end{align*}
+
+Note that 10's complement of a decimal number can be obtained by leaving all least significant zeros unchanged, subtracting the first non-zero least significant digit from 10 and then subtracting all other higher significant digits from 9. The 9's complement of a decimal number is obtained simply by subtracting every digit from 9.
+
+As another example, consider a binary number (1 0 1 1 0 0\,.\,0 1 1 0)$_{2}$. Here base r = 2. So we can define 2's complement and 1's complement for this number. In (1 0 1 1 0 0\,.\,0 1 1 0)$_{2}$, the number of digits in integer part is n = 6 and that in fractional part is m = 4.
+\begin{align*}
+\therefore~ \text{2's complement of } (1~0~1~1~0~0\,.\,0~1~1~0)_{2} &= (2^{6})_{10}-(1~0~1~1~0~0\,.\,0~1~1~0)_{2}\\[3pt]
+&= (1~0~0~0~0~0~0 - 1~0~1~1~0~0\,.\,0~1~1~0)_{2}\\[3pt]
+&= (0~1~0~0~1~1\,.\,1~0~1~0)\\[3pt]
+\text{and 1's complement of (1 0 1 1 0 0\,.\,0 1 1 0)} &=(2^{6}-2^{-4})_{10}-(1~0~1~1~0~0\,.\,0~1~1~0)_{2}\\[3pt]
+&= 0~1~0~0~1~1\,.\,1~0~0~1
+\end{align*}
+
+Note that the 2's complement of a binary number can be obtained by leaving all least significant zeros, the first least significant 1 unchanged and then replacing 1's by 0s and 0's by 1's.
+
+The 1's complement of a binary number can be obtained easily by replacing 1's by 0's and 0's by 1's.
+
+\begin{note}
+If we take complement of complement of a number, the number turns to its original value.
+\end{note}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.23}
+Find the 10's and 9's complement of the following decimal numbers.
+\begin{itemize}
+\item[(i)] 13579
+
+\item[(ii)] 900900
+
+\item[(iii)] 00000
+
+\item[(iv)] 8374.59
+
+\item[(v)] 17850.6584
+
+\item[(vi)] 0.1035
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+Given numbers are in decimal i.e., base r = 10.
+\begin{itemize}
+\item[(i)] $(13579)_{10}$\qquad ;~ Here n = 5 and m = 0
+\begin{align*}
+\therefore\quad \text{10's complement of } (13579)_{10} &= 10^{5}-13579\\[3pt]
+&= 100000-13579\\[3pt]
+&= 86421\\[3pt]
+\text{and 9's complement of } (13579)_{10} &= 10^{5}-10^{-0}-13579\\[3pt]
+&= 99999-13579\\[3pt]
+&= 86420
+\end{align*}
+
+\item[(ii)] $(900900)_{10}$\qquad ;~ Here n = 6 and m = 0
+\begin{align*}
+\therefore~ \text{10's complement of } (900900)_{10} &= 10^{6}-900900\\[3pt]
+&= 1000000 - 900900\\[3pt]
+&= 099100\\[3pt]
+\text{and 9's complement of } (900900)_{10} &= 10^{6}-10^{-0}-900900\\[3pt]
+ &= 999999-900900\\[3pt]
+ &= 099099
+\end{align*}
+
+\item[(iii)] $(00000)_{10}$\qquad ; Here n = 5 and m = 0.
+
+The 10's complement of zero is zero. See the definition in Sec.~\ref{sec5.4}.
+\begin{align*}
+\therefore~ \text{9's complement of } (00000)_{10} &= 10^{5}-10^{-0}-00000\\[3pt]
+                                                  &= 99999
+\end{align*}
+
+\item[(iv)] $(8374.59)_{10}$\qquad ; Here n = 4 and m = 2
+\begin{align*}
+\therefore~ \text{10's complement of } (8374.59)_{10} &= 10^{4}-8374.59\\[3pt]
+&= 1625.41\\[3pt]
+\text{and 9's complement of } (8374.59)_{10} &= 10^{4}-10^{-2}-8374.59\\[3pt]
+&= 1625.40
+\end{align*}
+
+\item[(v)] $(17850.6584)_{10}$\qquad ; Here n = 5 and m = 4
+\begin{align*}
+\therefore~ \text{10's complement of } (17850.6584)_{10} &= 10^{5}-17850.6584\\[3pt]
+&= 82149.3416\\[3pt]
+\text{and 9's complement of } (17850.6584)_{10} &= 10^{5}-10^{-4}-17850.6584\\[3pt]
+&= 82149.3415
+\end{align*}
+
+\item[(vi)] $(0.1035)_{10}$\qquad ; Here n = 0 and m = 4
+\begin{align*}
+\therefore~ \text{10's complement of } (0.1035)_{10} &= 10^{0}-0.1035\\[3pt]
+&= 0.8965\\[3pt]
+\text{and 9's complement of } (0.1035)_{10} &= 10^{0}-10^{-4}-0.1035\\[3pt]
+&= 0.8964
+\end{align*}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.24}
+Find the 2's and 1's complement of the following binary numbers.
+\begin{itemize}
+\item[(i)] (1 0 1 0 1 1)$_{2}$
+
+\item[(ii)] (1 1 1 1 1 0 1 0)$_{2}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+Given numbers are in binary i.e., r = 2
+\begin{itemize}
+\item[(i)] $(1~0~1~0~1~1)_{2}$\qquad ; Here n = 6 and m = 0
+\begin{align*}
+\therefore~ \text{2's complement of } (1~0~1~0~1~1)_{2} &= (2^{6})_{10}-(1~0~1~0~1~1)_{2}\\[3pt]
+&= (1~0~0~0~0~0~0-1~0~1~0~1~1)_{2}\\[3pt]
+&= 0~1~0~1~0~1\\[3pt]
+\text{and 1's complement of } (1~0~1~0~1~1)_{2} &= (2^{6}-2^{-0})_{10}-(1~0~1~0~1~1)_{2}\\[3pt]
+&= (63)_{10}-(1~0~1~0~1~1)_{2}\\[3pt]
+&= (1~1~1~1~1~1-1~0~1~0~1~1)_{2}\\[3pt]
+&= 0~1~0~1~0~0
+\end{align*}
+
+\item[(ii)] (1 1 1 1 1 0 1 0)$_{2}$\qquad ; Here n = 8 and m = 0
+\begin{align*}
+\therefore~ \text{2's complement of } (1~1~1~1~1~0~1~0)_{2} &= (2^{8})_{10}-(1~1~1~1~1~0~1~0)_{2}\\[3pt]
+&= (1~0~0~0~0~0~0~0~0~0-1~1~1~1~1~0~1~0)_{2}\\[2pt]
+&= 0~0~0~0~0~1~1~0\\[3pt]
+\text{and 1's complement of } (1~1~1~1~1~0~1~0)_{2} &= (2^{8}-2^{-0})_{10}-(1~1~1~1~1~0~1~0)_{2}\\[3pt]
+&= (255)_{10}-(1~1~1~1~1~0~1~0)_{2}\\[3pt]
+&= (1~1~1~1~1~1~1~1-1~1~1~1~1~0~1~0)_{2}\\[3pt]
+&= 0~0~0~0~0~1~0~1
+\end{align*}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.25}
+Obtain the 8's and 7's complement of the following octal numbers.
+\begin{itemize}
+\item[(i)] $(7364)_{8}$
+
+\item[(ii)] $(55442)_{8}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+Given numbers are in octal. i.e., base r = 8
+\begin{itemize}
+\item[(i)] $(7364)_{8}$\qquad ; Here n = 4 and m = 0
+\begin{align*}
+\therefore~ \text{8's complement of } (7364)_{8} &= (8^{4})_{10}-(7364)_{8}\\[3pt]
+ &= (4096)_{10}-(7364)_{8}\\[3pt]
+&= (10000-7364)_{8}\\[3pt]
+&= 0414\\[3pt]
+\text{and 7's complement of } (7364)_{8} &= (8^{4}-8^{-0})_{10}-(7364)_{8}\\[3pt]
+&= (4095)_{10}-(7364)_{8}\\[3pt]
+&= (7777-7364)_{8}\\[3pt]
+&= 0413
+\end{align*}
+
+\item[(ii)] $(55442)_{8}$\qquad ; Here n = 5 and m = 0
+\begin{align*}
+\therefore~ \text{8's complement of } (55442)_{8} &= (8^{5})_{10}-(55442)_{8}\\[3pt]
+&= (32768)_{10}-(55442)_{8}\\[3pt]
+&= 22336\\[3pt]
+\text{and 7's complement of } (55442)_{8} &= (8^{5}-8^{-0})_{10}-(55442)_{8}\\[3pt]
+&= (32767)_{10}-(55442)_{8}\\[3pt]
+&= (77777-55442)_{8}\\[3pt]
+&= 22335
+\end{align*}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.26}
+Find the 16's and 15's complement of the following hexadecimal numbers.
+\begin{itemize}
+\item[(i)] (8AC7)$_{16}$
+
+\item[(ii)] (BABA7)$_{16}$
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+Given numbers are in hexadecimal i.e., r = 16
+\begin{itemize}
+\item[(i)] (8AC7)$_{16}$\qquad ; Here n = 4 and m = 0
+\begin{align*}
+\therefore~ \text{16's complement of (8AC7)}_{16} &= (16^{4})_{10}-(\text{8AC7})_{4}\\[3pt]
+&= (10000-8\rmA\rmC 7)_{4}\\[3pt]
+&= 7539\\[3pt]
+\text{and 15's complement of (8AC7)}_{16} &= (16^{4}-16^{-0})_{10}-(8\rmA\rmC 7)_{16}\\[3pt]
+&= (65535)_{10}-(8\rmA\rmC 7)_{16}\\[3pt]
+&= 7538
+\end{align*}
+
+\item[(ii)] (BABA7)$_{16}$\qquad ; Here n = 5 and m =0
+\begin{align*}
+\therefore~ \text{16's complement of (BABA7)}_{16} &= (16^{5})_{10}-(\text{BABA7})_{16}\\[3pt]
+&= (100000-\text{BABA7})_{16}\\[3pt]
+&= 45459\\[3pt]
+\text{and 15's complement of (BABA7)}_{16} &= (16^{5}-16^{-0})_{10}-(\text{BABA7})_{16}\\[3pt]
+&= (\text{FFFFF}-\text{BABA7})_{16}\\[3pt]
+&= 45458.
+\end{align*}
+\end{itemize}
+\end{solution}
+
+\section{Binary addition}\label{sec5.5}
+
+In the decimal system when two numbers are added, if the sum becomes greater than 9, a carry is generated from the unit position to the 10's position and so on. Similarly, in binary system, if the added value is greater than 1, a carry is generated. For various combinations of the augend and the addend, the sum (S) and carry (C) is shown below.
+\begin{center}
+\begin{tabular}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+\begin{tabular}{ccc}
+ & & 0\\
++ & & 0\\
+\cline{2-3}
+ & 0 & 0\\
+ & $\downarrow$ & $\downarrow$\\
+ & C & S
+\end{tabular}
+&
+\begin{tabular}{ccc}
+ & & 0\\
++ & & \\
+\cline{2-3}
+ & 0 & 1\\
+ & $\downarrow$ & $\downarrow$\\
+ & C & S
+\end{tabular}
+&
+\begin{tabular}{ccc}
+ & & 1\\
++ & & 0\\
+\cline{2-3}
+ & 0 & 1\\
+ & $\downarrow$ & $\downarrow$\\
+ & C & S
+\end{tabular}
+&
+\begin{tabular}{ccc}
+ & & 1\\
++ & & 1\\
+\cline{2-3}
+ & 1 & 0\\
+ & $\downarrow$ & $\downarrow$\\
+ & C & S
+\end{tabular}
+\end{tabular}
+\end{center}
+
+Consider, we want to add a binary numbers 1 0 1 0 and 1 1 1, 
+
+\medskip
+\begin{tabular}{@{}l@{\qquad\qquad}cr}
+i.e., & & 1 0 1 0\\
+   & + & 1 1 1\\
+\cline{2-3}
+ & & 1 0 0 0 1
+\end{tabular}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.27}
+Add the following binary numbers.
+
+\smallskip
+(i)~ 1 0 1 0 + 1 1 1 1 1\hfil (ii)~ 1 1 0 1 1 + 0 1\hfil (iii)~ 1 1 1 1 + 1 0 1 0 1
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] 1 0 1 0 + 1 1 1 1 1
+\begin{center}
+\begin{tabular}{r@{\;}r}
+ & 1 0 1 0\\
++ & 1 1 1 1 1\\
+\cline{2-2}
+ & 1 0 1 0 0 1
+\end{tabular}
+\end{center}
+Answer = 1 0 1 0 0 1
+
+\item[(ii)] 1 1 0 1 1 + 0 1
+\begin{center}
+\begin{tabular}{r@{\;}r}
+ & 1 1 0 1 1\\
++ & 0 1\\
+\cline{2-2}
+ & 1 1 1 0 0 
+\end{tabular}
+\end{center}
+Answer = 1 1 1 0 0
+
+\item[(iii)] 1 1 1 1 + 1 0 1 0 1
+\begin{center}
+\begin{tabular}{r@{\;}r}
+ & 1 1 1 1\\
++ & 1 0 1 0 1\\
+\cline{2-2}
+ & 1 0 0 1 0 0
+\end{tabular}
+\end{center}
+Answer = 1 0 0 1 0 0.
+\end{itemize}
+\end{solution}
+
+\section{Binary subtraction using 1's and 2's complements}\label{sec5.6}
+
+So far, we studied to represent a positive number in different base-r. But representation of signed number (+ve or $-$ve) is different. One way of representing signed number is sign-complement form.
+
+The 2's (or 1's) complement system for representing signed number is explained below.
+\begin{enumerate}
+\item If the number is positive, the magnitude is represented in its true binary form and a sign bit `0' is placed in front of MSB.
+
+\item If the number is negative, the magnitude is in its 2's (or 1's) complement form and a sign bit `1' is placed in front of MSB.
+\end{enumerate}
+
+Consider a decimal number $+59$. In sign-1's complement system, it is represented as,
+\begin{center}
+{\bf Figure}
+\end{center}
+
+But, $-59$ is represented as,
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\begin{note}
+1's complement of binary number is simply obtained by replacing 0's by 1's and 1's by 0's.
+\end{note}
+
+In sign-2's complement system, $+59$ is represented as,
+\begin{center}
+{\bf Figure}
+\end{center}
+
+Thus, for positive number the representation is same in both sign-1's complement and sign-2's complement systems.
+
+But $-59$ is represented as,
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\begin{note}
+2's complement of a binary number is simply obtained by leaving all least significant zeros, the first least significant 1 unchanged and then replacing 1's by 0's and 0's by 1's.
+\end{note}
+
+\itheading{Subtraction using 1's complement}
+
+The procedures for subtraction using 1's complement are explained below~:
+
+Say, we want to perform M $-$ N (both M and N are positive numbers). The steps to be followed are,
+\begin{itemize}
+\item[(i)] Add the minuend M to the 1's complement of subtrahend N.
+
+\item[(ii)] Inspect the result obtained in step (i) for an end carry.
+\begin{itemize}
+\item[(a)] If an end carry occurs, add 1 to the least significant bit (end around carry).
+
+\item[(b)] If an end carry does not occur, take 1's complement of the number obtained in step (i) and place a negative sign in front of it.
+\end{itemize}
+\end{itemize}
+
+Consider that we want to perform $58-34$.
+\begin{center}
+{\bf Figure}
+\end{center}
+
+Now consider $78-90$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\itheading{Subtraction using 2's complement}
+
+The procedures for subtraction using 2's complement are explained below~:
+
+Say, we want to perform M $-$ N (both M and N are positive numbers). The steps to be followed are,
+\begin{itemize}
+\item[(i)] Add the minuend M to the 2's complement of the subtrahend N.
+
+\item[(ii)] Inspect the result obtained in step (i) for an end carry.
+\begin{itemize}
+\item[(a)] If an end carry occurs, discard it.
+
+\item[(b)] If an end carry does not occur, take the 2's complement of the number obtained in step (i) and place a negative sign in front of it.
+\end{itemize}
+\end{itemize}
+
+Consider that we want to perform $78-69$.
+\begin{center}
+{\bf Figure}
+\end{center}
+
+Now consider $78-84$.
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+\begin{problem}\label{prob5.28}
+Perform the following subtractions using 1's complement. Numbers are given in decimal.
+
+\smallskip
+(i)~ $47-40$\hfil (ii)~ $505-470$\hfil (iii)~ $39-48$\hfil (iv)~ $2003-2003$
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] $47-40$
+\begin{center}
+\begin{tabular}{r@{\qquad}r}
+Binary equivalent of 40 = & 1 0 1 0 0 0\\[3pt]
+$\therefore$~ 1's complement representation of $-40$ = & 1 0 1 0 1 1 1
+\end{tabular}
+\end{center}
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(ii)] $505-470$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iii)] $39-48$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iv)] $2003-2003$
+\begin{center}
+\begin{tabular}{r@{\qquad}r}
+Binary equivalent of 2003 = & 1 1 1 1 1 0 1 0 0 1 1\\[3pt]
+1's complement representation of $-2003$ = & 1 0 0 0 0 0 1 0 1 1 0 0
+\end{tabular}
+\end{center}
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.29}
+Perform the subtraction with the following binary numbers using 1's complement.
+\begin{center}
+\begin{tabular}{r@{\;\,}l@{\qquad\quad}r@{\;\,}l}
+(i) & 1 1 0 1 0 $-$ 1 1 0 1 & (ii) & 1 0 0 1 0 $-$ 1 0 0 1 1\\[3pt] 
+(iii) & 1 1 0 1 0 $-$ 1 0 0 0 0 & (iv) & 1 0 0 $-$ 1 1 0 0 0 0 
+\end{tabular}
+\end{center}
+\end{problem}
+
+\begin{solution}
+Note : In all the cases, the number of bits in the representation of M and N should be made equal.
+\begin{itemize}
+\item[(i)] 1 1 0 1 0 $-$ 1 1 0 1
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(ii)] 1 0 0 1 0 $-$ 1 0 0 1 1
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iii)] 1 1 0 1 0 $-$ 1 0 0 0 0
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iv)] 1 0 0 $-$ 1 1 0 0 0 0
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.30}
+Perform the following subtractions using 2's complement. Numbers are given in decimal.
+
+\smallskip
+(i)~ $78-65$\hfil (ii)~ $708-648$\hfil (iii)~ $24-36$\hfil (iv)~ $1029-1029$
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] $78-65$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(ii)] $708-648$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iii)] $24-36$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iv)] $1029-1029$
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{itemize}
+\end{solution}
+
+\begin{problem}\label{prob5.31}
+Perform the subtraction with the following binary numbers using 2's complements.
+\begin{center}
+\begin{tabular}{r@{\;\,}l@{\qquad\quad}r@{\;\,}l}
+(i) & 1 1 0 1 0 $-$ 1 1 0 1 & (ii) & 1 0 0 1 0 $-$ 1 0 0 1 1\\[3pt]
+(iii) & 1 1 0 1 0 $-$ 1 0 0 0 0 & (iv) & 1 0 0 $-$ 1 1 0 0 0 0
+\end{tabular}
+\end{center}
+\end{problem}
+
+\begin{solution}
+\begin{itemize}
+\item[(i)] 1 1 0 1 0 $-$ 1 1 0 1
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(ii)] 1 0 0 1 0 $-$ 1 0 0 1 1
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iii)] 1 1 0 1 0 $-$ 1 0 0 0 0
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\item[(iv)] 1 0 0 $-$ 1 1 0 0 0 0
+\begin{center}
+{\bf Figure}
+\end{center}
+\end{itemize}
+\end{solution}
+
+\section{Addition in other number systems}\label{sec7.7}
+
+\heading{(i) {\em Addition in octal system}}
+
+The addition in octal system can be performed by the same way as in the decimal system. Add the digits in each column in decimal and convert this sum into octal. Write the sum in that column and carry the carry term to the next higher significant column.
+
+For example, add $(334.65)_{8}$ to $(671.14)_{8}$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\noindent
+$\therefore$~ Answer $= (1226.01)_{8}$.
+
+\smallskip
+\heading{(ii) {\em Addition in hexadecimal system}}
+
+The addition in hexadecimal system can also be carried out by the same way. i.e., add the digits in each column in decimal and convert this sum into hexadecimal. Write the sum in that column and carry the carry term to the higher significant column.
+
+For example, add (7AB.67)$_{16}$  to (15C.71)$_{16}$
+\begin{center}
+{\bf Figure}
+\end{center}
+
+\noindent
+$\therefore$~ Answer = (907.D8)$_{16}$.
+
+\begin{center}
+\rule{4cm}{1pt}\\
+{\bf\Large Problems}\\[-3pt]
+\rule{4cm}{1pt}
+\end{center}
+
+
+
+
+\label{5end}

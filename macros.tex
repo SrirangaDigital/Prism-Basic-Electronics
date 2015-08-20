@@ -1,0 +1,248 @@
+\parskip 2pt
+\newcount\t
+\global\t=0
+%\newcount\sec
+%\global\sec=0
+\newcount\corn 
+\global\corn=0  
+
+\setcounter{tocdepth}{2}
+
+\newenvironment{corollary}{\penalty-200\medskip\noindent{\bfseries Corollary\;\global\advance\corn by1 \the\corn.}\itshape}{\hspace*{\fill}\par\medskip}
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dt}{dt}
+
+\def\rmA{\textrm{A}}
+\def\rmB{\textrm{B}}
+\def\rmC{\textrm{C}}
+\def\rmD{\textrm{D}}
+\def\rmE{\textrm{E}}
+\def\rmF{\textrm{F}}
+\def\rmG{\textrm{G}}
+\def\rmH{\textrm{H}}
+\def\rmI{\textrm{I}}
+\def\rmJ{\textrm{J}}
+\def\rmK{\textrm{K}}
+\def\rmL{\textrm{L}}
+\def\rmM{\textrm{M}}
+\def\rmN{\textrm{N}}
+\def\rmO{\textrm{O}}
+\def\rmP{\textrm{P}}
+\def\rmQ{\textrm{Q}}
+\def\rmR{\textrm{R}}
+\def\rmS{\textrm{S}}
+\def\rmT{\textrm{T}}
+\def\rmU{\textrm{U}}
+\def\rmV{\textrm{V}}
+\def\rmW{\textrm{W}}
+\def\rmX{\textrm{X}}
+\def\rmY{\textrm{Y}}
+\def\rmZ{\textrm{Z}}
+
+\def\rma{\textrm{a}}
+\def\rmb{\textrm{b}}
+\def\rmc{\textrm{c}}
+\def\rmd{\textrm{d}}
+\def\rme{\textrm{e}}
+\def\rmf{\textrm{f}}
+\def\rmg{\textrm{g}}
+\def\rmh{\textrm{h}}
+\def\rmi{\textrm{i}}
+\def\rmj{\textrm{j}}
+\def\rmk{\textrm{k}}
+\def\rml{\textrm{l}}
+\def\rmm{\textrm{m}}
+\def\rmn{\textrm{n}}
+\def\rmo{\textrm{o}}
+\def\rmp{\textrm{p}}
+\def\rmq{\textrm{q}}
+\def\rmr{\textrm{r}}
+\def\rms{\textrm{s}}
+\def\rmt{\textrm{t}}
+\def\rmu{\textrm{u}}
+\def\rmv{\textrm{v}}
+\def\rmw{\textrm{w}}
+\def\rmx{\textrm{x}}
+\def\rmy{\textrm{y}}
+\def\rmz{\textrm{z}}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[chapter]
+
+\newtheoremstyle{relation}{3pt}{2pt}{}{}%
+{\bfseries}{}{ }{{\underline{\bf #1 #2} :}\;}
+\theoremstyle{relation}
+\newtheorem{relation}{Relation}
+
+\newenvironment{remark}{\penalty-200\medskip\noindent{\bfseries
+Remark:\!\,}}{\hspace*{\fill}\par\medskip}
+
+\newenvironment{answer}{\penalty-200\medskip\noindent{\bfseries
+Answer:\!\,}}{\hspace*{\fill}\par\medskip}
+
+\newenvironment{problem*}{\penalty-200\medskip\noindent{\bfseries
+Problem:\!\,}}{\hspace*{\fill}\par\medskip}
+
+\newenvironment{remarks}{\penalty-200\medskip\noindent{\bfseries
+Remarks\!\,}}{\hspace*{\fill}\par\medskip} 
+
+\newenvironment{note}{\penalty-200\medskip\noindent{\bfseries
+Note:\;}}{\hspace*{\fill}\par\medskip} 
+
+\newenvironment{explain}{\penalty-200\medskip\noindent}{\hspace*{\fill}\rule{1.75mm}{1.75mm}\par\medskip}  
+
+\newenvironment{tenpt}{\fontsize{10}{14}\selectfont}{\relax}
+
+\newenvironment{exercise}{\penalty-200\smallbreak{%
+\begin{center}
+\rule{6cm}{1pt}\\[-3pt]
+{\noindent\textbf{\large Exercises}}\\[-8pt]
+\rule{6cm}{1pt}
+\end{center}
+} \fontsize{10}{14}\selectfont}{\hspace*{\fill}\relax}
+
+\newenvironment{exercise*}{\penalty-200\smallbreak{%
+\begin{center}
+\rule{6cm}{1pt}\\[-3pt]
+{\noindent\textbf{\large Exercises\boldmath$^{\textstyle*}$}}\\[-8pt]
+\rule{6cm}{1pt}
+\end{center}
+} \fontsize{10}{14}\selectfont}{\hspace*{\fill}\relax}
+
+%\newenvironment{answer}{\penalty-200{%
+%\begin{center}
+%\rule{3cm}{1pt}\\[-3pt]
+%\textbf{Answers}\\[-7pt]
+%\rule{3cm}{1pt}
+%\end{center}
+%} \fontsize{9}{14}\selectfont}{\hspace*{\fill}\par\medskip\relax}
+
+
+\def\imp#1{\mbox{\fontsize{11}{12}\selectfont $#1$}}
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-0.5ex \@plus -0.5ex \@minus -.2ex}%
+                                   {1.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries}}
+
+\if@twoside
+\def\ps@headings{%
+      \let\@oddfoot\@empty\let\@evenfoot\@empty
+      \def\@evenhead{\it\bfseries\thepage\hfil{\it\bfseries}}%
+      \def\@oddhead{{\it\bfseries\leftmark}\hfil\it\bfseries\thepage}%
+      \let\@mkboth\markboth
+    \def\chaptermark##1{%
+      \markboth {\MakeUppercase{%
+        \ifnum \c@secnumdepth >\m@ne
+          \if@mainmatter
+            \@chapapp\ \thechapter. \ %
+          \fi
+        \fi
+        ##1}}{}}
+\fi
+}
+
+\def\@makechapterhead#1{%
+  \vspace*{5\p@}%
+  {\parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \LARGE\bfseries \@chapapp\space\thechapter
+        \vskip 4pt
+        \hrule height 2pt 
+        \par\nobreak
+        \vskip 5\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \LARGE\bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+%\renewcommand{\chaptermark}[1]{\markboth{\it\bfseries Discrete
+%  Mathematical Structures---1}{\it\bfseries\thechapter. #1}}
+
+%\renewcommand{\chaptermark}[1]{\markboth{\it\bfseries #1}{\it\bfseries \thechapter.~\rightmark}}
+\renewcommand{\chaptermark}[1]{\markboth{\it\bfseries \thechapter.~#1}{}}
+
+\renewcommand{\sectionmark}[1]{\markright{\it\bfseries\thesection.~#1}}
+\renewcommand{\subsectionmark}[1]{\markright{\it\bfseries\thesubsection.~#1}}
+\newcommand{\newsymboll}{$\bullet$}
+\renewcommand{\qedsymbol}{\newsymboll}
+\newtheoremstyle{thm}{3pt}{2pt}{\itshape}{}%
+{\bfseries}{}{ }{{\bf #1 :}\;}
+\theoremstyle{thm}
+\newtheorem{thm}{\underline{Theorem}}
+
+
+
+\newtheoremstyle{prop}{3pt}{2pt}{\itshape}{}%
+{\bfseries}{}{ }{\colorbox{black}{\textcolor{white}{\bf #1 :}}\;}
+\theoremstyle{prop}
+\newtheorem{prop}{Property}
+%\newtheoremstyle{thnm}{3pt}{2pt}{\itshape}{}{\bfseries}{}
+%{ }{\colorbox{black}{\textcolor{white}{\bf #1 #2}}\;}
+%\theoremstyle{thnm}
+%\newtheorem{thnm}{Theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Redefining \@chapter
+\makeatletter
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                       \if@mainmatter
+		       \addtocontents{toc}{\protect\thispagestyle{empty}}
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                   
+		      \else
+                
+                       \fi
+                    \else
+                
+                    \fi
+                    \chaptermark{#1}%
+                    \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
+
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\contentsname
+        \@mkboth{%
+           \contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+%%table of contents
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip .6em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+%% end of toc %%
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
