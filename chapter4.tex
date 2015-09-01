@@ -29,14 +29,17 @@
 
 An operational amplifier is a very high gain directly coupled negative feedback amplifier which can amplify signals having wide range of frequencies. It was originally designed for performing mathematical operations such as addition, subtraction, multiplication, integration etc. Hence the name {\em operational amplifier} or {\em OPAMP}. But with the addition of suitable external feedback components, the modern day opamp can be used for a variety of applications such as signal amplification, filters, oscillators, regulators, comparators  etc.
 
+\smallskip
 \itheading{Schematic Symbol~:}
-
-\begin{center}
-{\bf Figure 4.1}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.1.eps}
+\caption{Schematic symbol for an opamp}\label{fig4.1}
+\end{figure}
 
 Fig.~\ref{fig4.1} shows the schematic symbol for an opamp. It has 2 inputs and an output terminal. The input with `+' sign is called {\em non-inverting terminal} and that with `$-$' sign is called {\em inverting terminal}. The output voltage $v_{\rmo}$ is in-phase with the input if the signal is connected to the non-inverting terminal and $v_{\rmo}$ is out of phase with the input if the signal is connected to the inverting terminal. +V$_{\text{CC}}$ and $-$V$_{\text{EE}}$ are dc power terminals. `A' indicates the open-loop voltage gain.
 
+\smallskip
 Opamps are available in three packages :
 \begin{itemize}
 \item[(i)] The dual-in-line package (DIP)
@@ -47,10 +50,11 @@ Opamps are available in three packages :
 \end{itemize}
 
 \itheading{Equivalent circuit of an opamp~:}
-
-\begin{center}
-{\bf Figure 4.2}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.2.eps}
+\caption{Equivalent circuit of an opamp}\label{fig4.2}
+\end{figure}
 
 Fig.~\ref{fig4.2} shows an equivalent circuit of an opamp. The output voltage $v_{\rmo}$ is given by,
 \begin{align}
@@ -67,22 +71,25 @@ where \= $v_{\id}$ \== difference input voltage (V)\\[3pt]
 Here $\rmA v_{\id}$ is an equivalent Thevinin's voltage source and $\rmR_{\rmo}$ is the Thevinin's equivalent resistance looking back into the output terminal of an opamp. $\rmR_{i}$ is the input resistance.
 
 Eqn.~\eqref{eq4.1} indicates that output voltage $v_{\rmo}$ is directly proportional to the algebraic difference between the two input voltages, i.e., the opamp amplifies the difference between the two input voltages. Therefore the polarity of the output voltage depends on the polarity of the difference voltage. Eqn.~\eqref{eq4.1} is called the basic opamp equation. The graphical representation of this equation is shown in Fig.~\ref{fig4.3} where the output voltage $v_{\rmo}$ is plotted against input difference voltage $v_{\id}$, keeping A as constant.
-\begin{center}
-{\bf Figure 4.3}
-\end{center}
+
 Note that the output voltage $v_{\rmo}$ cannot exceed the +ve and $-$ve saturation voltages +V$_{\text{CC}}$ and $-$V$_{\text{EE}}$ respectively. Therefore the output voltage $v_{\rmo}$ is directly proportional to the input difference voltage $v_{2}$, until it reaches the saturation voltages and thereafter it remains constant as shown in the Fig.~\ref{fig4.3}. the graph shown is called an {\em ideal voltage transfer curve}. Since open-loop gain A is very large, a small difference input voltage $v_{\id}$ will cause the opamp output voltage $v_{\rmo}$ to be driven all the way to its extreme +ve or $-$ve V$_{\text{sat}}$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.3.eps}
+\caption{Ideal voltage transfer curve of an opamp}\label{fig4.3}
+\end{figure}
 
 \medskip
 \noindent
 {\bf Note~:} From Fig.~\ref{fig4.2}, we have
 \begin{align*}
-v_{\rmo} &=\rmA v_{\id}\\[3pt]
- &= \rmA (v_{2}-v_{1})\\[3pt]
+v_{\rmo} &=\rmA v_{\id}\\[4pt]
+ &= \rmA (v_{2}-v_{1})\\[4pt]
 v_{2}-v_{1} &= \frac{\rmV_{\rmo}}{\rmA}
 \end{align*}
 Ideally, the open loop voltage gain of an opamp is $A=\infty$.
 \begin{gather*}
-\therefore\quad v_{2}-v_{1}=\frac{\rmV_{\rmo}}{\rmA}=\frac{\rmV_{\rmo}}{\infty}=0\\
+\therefore\quad v_{2}-v_{1}=\frac{\rmV_{\rmo}}{\rmA}=\frac{\rmV_{\rmo}}{\infty}=0\\[4pt]
 \therefore\quad v_{2}-v_{1}
 \end{gather*}
 
@@ -95,9 +102,11 @@ Ideally, for an opamp A open loop gain A = $\infty$, input resistance $R_{1}=\in
 Opamp are often used as comparators to compare the amplitude of one voltage with another. In this application, the opamp is used in the open-loop configuration (i.e., no feedback connection from the output to the input of opamp) with the input voltage on one input and reference voltage on the other.
 
 Consider the circuit shown in Fig.~\ref{fig4.4}(a). Below with input voltage $v_{\text{in}}$ as shown in Fig.~\ref{fig4.4}(b).
-\begin{center}
-{\bf  Figure 4.4}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.4.eps}
+\caption{Comparator}\label{fig4.4}
+\end{figure}
 
 Here $v_{2}=v_{\text{in}}$ and $\rmV_{1}=0$ when $v_{\text{in}}>\rmV_{1}=0$, $\rmV_{0}=+\rmV_{\text{sat}}\simeq + \rmV_{\text{CC}}$. When $\rmV_{\text{in}}<\rmV_{1}=0$, $v_{\rmo}=-\rmV_{\text{sat}}-\rmV_{\text{EE}}$. The output voltage $v_{\rmo}$ waveform is shown in Fig.~\ref{fig4.4}(b). The given circuit is known as `zero crossing detector'.
 
@@ -107,11 +116,15 @@ Here $v_{2}=v_{\text{in}}$ and $\rmV_{1}=0$ when $v_{\text{in}}>\rmV_{1}=0$, $\r
 \rule{4cm}{1pt}
 \end{center}
 
-\begin{problem}\label{prop4.1}
-In the circuit shown in Fig.~P.~\ref{figP4.1}, determine the output voltage $v_{\rmo}$. Given $A=10^{8}$.
-\begin{center}
-{\bf Figure P4.1}
-\end{center}
+\begin{problem}\label{prob4.1}
+In the circuit shown in Fig.~P4.1, determine the output voltage $v_{\rmo}$. Given $A=10^{8}$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.1.eps}
+
+\smallskip
+{\bf Fig. P4.1}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -134,38 +147,72 @@ $$
 {\bf Note~:} When the opamp is in open-loop configuration, the output voltage $v_{\rmo}$ is approximately +V$_{\text{CC}}$ if non-inverting terminal is at higher potential than inverting terminal and is approximately $-$V$_{\text{EE}}$ if inverting terminal is at higher potential than non-inverting terminal.
 
 \begin{problem}\label{prob4.2}
-In the circuit shown in Fig.~P\ref{figP4.2} draw the output voltage waveform for the input voltage waveform shown in Fig.~P\ref{fig4.2.1}.
-\begin{center}
-{\bf Figure P4.2, P4.2.1}
-\end{center}
+In the circuit shown in Fig.~P4.2 draw the output voltage waveform for the input voltage waveform shown in Fig.~P4.2.1.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.1.eps}
+
+\smallskip
+{\bf Fig. P4.2}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.2.1.eps}
+
+\smallskip
+{\bf Fig. P4.2.1}
+\end{figure}
 \end{problem}
 
 \begin{solution}
-Non-inverting terminal is ???????? i.e., $v_{2}=0\rmV$. When $v_{\text{in}}>0$ i.e., $v_{1}>0$, $v_{\rmo}\simeq - 15\rmV$. When $v_{\text{in}}<0$ i.e., $v_{2}<0$, $v_{\rmo}\simeq +15\rmV$. Both input and output voltage waveform are drawn in Fig.~P\ref{fig4.2.2}.
-\begin{center}
-{\bf Figure 4.2.2}
-\end{center}
+Non-inverting terminal is ???????? i.e., $v_{2}=0\rmV$. When $v_{\text{in}}>0$ i.e., $v_{1}>0$, $v_{\rmo}\simeq - 15\rmV$. When $v_{\text{in}}<0$ i.e., $v_{2}<0$, $v_{\rmo}\simeq +15\rmV$. Both input and output voltage waveform are drawn in Fig.~P4.2.2.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.2.2.eps}
+
+\smallskip
+{\bf Fig. P4.2.2}
+\end{figure}
 \end{solution}
 
-\begin{problem}\label{prop4.3}
-In the circuit shown in Fig.~P\ref{figP4.3}, draw the output voltage waveform for the input voltage shown in Fig.~P\ref{figP4.3.1}.
-\begin{center}
-{\bf Figure P4.3, P4.3.1}
-\end{center}
+\begin{problem}\label{prob4.3}
+In the circuit shown in Fig.~P4.3, draw the output voltage waveform for the input voltage shown in Fig.~P4.3.1.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.3.eps}
+
+\smallskip
+{\bf Fig. P4.3}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.3.1.eps}
+
+\smallskip
+{\bf Fig. P4.3.1}
+\end{figure}
 \end{problem}
 
 \begin{solution}
-The inverting terminal is $\omega t$ +2V i.e., $v_{1}=2\rmV$. When $v_{\text{in}}=\rmV_{2}>2\rmV$, $v_{\rmo}=+\rmV_{\text{sect}}=+\rmV_{\text{CC}}=+\omega \rmV$. When $v_{\text{in}}=v_{2}<2\rmV$, $v_{\rmo}=-\rmV_{\text{sat}}=-\rmV_{\text{EE}}=-15\rmV$. Output voltage $v_{\rmo}$ waveform along with input voltage waveform is shown in Fig.~P\ref{P4.3.2}.
-\begin{center}
-{\bf P4.3.2}
-\end{center}
+The inverting terminal is $\omega t$ +2V i.e., $v_{1}=2\rmV$. When $v_{\text{in}}=\rmV_{2}>2\rmV$, $v_{\rmo}=+\rmV_{\text{sect}}=+\rmV_{\text{CC}}=+\omega \rmV$. When $v_{\text{in}}=v_{2}<2\rmV$, $v_{\rmo}=-\rmV_{\text{sat}}=-\rmV_{\text{EE}}=-15\rmV$. Output voltage $v_{\rmo}$ waveform along with input voltage waveform is shown in Fig.~P4.3.2.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.3.2.eps}
+
+\smallskip
+{\bf Fig. P4.3.2}
+\end{figure}
 \end{solution}
 
 \begin{problem}\label{prob4.4}
-The input signal $v_{\text{in}}$ shown in Fig.~P\ref{fig4.4}(d) is applied to the comparator circuit shown in Fig.~\ref{fig4.4}(b). Sketch the output voltage waveform.
-\begin{center}
-{\bf Figure P4.4}
-\end{center}
+The input signal $v_{\text{in}}$ shown in Fig.~P4.4(a) is applied to the comparator circuit shown in Fig.~P4.4(b). Sketch the output voltage waveform.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.4.eps}
+
+\smallskip
+{\bf Fig. P4.4}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -175,13 +222,17 @@ Using the voltage divider rule, the voltage at the inverting terminal,
 \therefore\quad \text{When~ } v_{\text{in}} &= v_{2}>1.63\rmV &;&\quad v_{\rmo}=+\rmV_{\text{sat}}\simeq +\rmV_{\text{CC}}\simeq + 12\rmV\\[3pt]
 \text{When~ } v_{\text{in}} &=v_{2}<1.63 &;&\quad v_{\rmo}=-\rmV_{\text{sat}}\simeq -\rmV_{\text{EE}}\simeq 12\rmV
 \end{alignat*}
-The input and output voltage waveforms are shown in Fig.~P\ref{fig4.4.1} below.
-\begin{center}
-{\bf P4.4.1}
-\end{center}
+The input and output voltage waveforms are shown in Fig.~P4.4.1 below.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.4.1.eps}
+
+\smallskip
+{\bf Fig. P4.4.1}
+\end{figure}
 \end{solution}
 
-\section{OPAMP Characteristics/Parameters}\label{fig4.3}
+\section{OPAMP Characteristics/Parameters}\label{sec4.3}
 
 In this section, we will discuss some of the important opamp characteristics and parameters briefly.
 \begin{itemize}
@@ -214,9 +265,11 @@ where\quad \= $\rmI_{\text{B1}}$ = current into the non-inverting terminal.\\[3p
 \text{i.e.,~~ CMRR~} = \frac{\rmA_{\text{d}}}{\rmA_{\text{cm}}}\label{eq4.4}
 \end{equation}
 Consider the circuit shown in Fig.~\ref{fig4.4}. If the 2 input terminals of an opamp are shorted and a common signal $v_{\text{cm}}$ applied between inputs and ground, the output should be zero because $v_{\rmo}=\rmA (v_{2}-v_{1})=\rmA (v_{\text{cm}}-v_{\text{cm}})=0$.
-\begin{center}
-{\bf Figure 4.5}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.5.eps}
+\caption{}\label{fig4.5}
+\end{figure}
 However, in practical the output is non-zero and the ratio of the output voltage $v_{\rmo}$ to the input voltage $v_{\text{cm}}$ is known as {\em common mode gain} $\rmA_{\text{cm}}$. Since CMRR is very large, it is usually expressed in decibels (dB)
 \begin{equation}
 \text{CMRR} \Big|_{\text{dB}}= 20\log_{10}\left|\frac{\rmA_{\text{d}}}{\rmA_{\text{cm}}}\right|\label{eq4.5}
@@ -262,11 +315,11 @@ Determine the input bias current and input offset current to an opamp if the cur
 \begin{solution}
 Given $\rmI_{\text{B1}}=8.3\,\mu\rmA$, $\rmI_{\text{B2}}=7.9\,\mu \rmA$.
 \begin{align*}
-\text{Input bias current~ } \rmI_{\rmB} & \frac{\rmI_{\rmB 1}+\rmI_{\rmB 2}}{2}\\[3pt]
-&= \frac{8.3+7.9}{2}\mu\rmA\\[3pt]
-&= 8.1\mu\rmA\\[3pt]
-\text{Input offset current~ } \rmI_{\text{io}} &= |\rmI_{\rmB 1}-\rmI_{\rmB 2}|\\[3pt]
-&= |8.3-7.9|\mu\rmA\\[3pt]
+\text{Input bias current~ } \rmI_{\rmB} & \frac{\rmI_{\rmB 1}+\rmI_{\rmB 2}}{2}\\[2pt]
+&= \frac{8.3+7.9}{2}\mu\rmA\\[2pt]
+&= 8.1\mu\rmA\\[2pt]
+\text{Input offset current~ } \rmI_{\text{io}} &= |\rmI_{\rmB 1}-\rmI_{\rmB 2}|\\[2pt]
+&= |8.3-7.9|\mu\rmA\\[2pt]
 &= 0.4 \mu\rmA
 \end{align*}
 \end{solution}
@@ -278,7 +331,7 @@ A certain opamp has a differential voltage gain of 100,000 and common-mode gain 
 \begin{solution}
 Given~ $\rmA_{\text{d}}=100,000$, $\rmA_{\text{cm}}=0.25$.
 \begin{align*}
-\therefore\quad \text{CMRR~} &= \frac{\rmA_{\text{d}}}{\rmA_{\text{cm}}}=\frac{100000}{0.25}=4,00,000\\[3pt]
+\therefore\quad \text{CMRR~} &= \frac{\rmA_{\text{d}}}{\rmA_{\text{cm}}}=\frac{100000}{0.25}=4,00,000\\[2pt]
 \text{CMRR~}\Big|_{\text{dB}} &= 20 \log_{10}(4,00,000)=112.04\text{~dB}
 \end{align*}
 \end{solution}
@@ -303,6 +356,8 @@ $$
 \item[(b)] CMRR in decibels $=20\log_{10}(30,000)=89.54$ dB
 \end{itemize}
 \end{solution}
+
+\vfill\eject
 
 \begin{problem}\label{prob4.8}
 When a pulse is applied to an opamp, the output voltage changes from $-8\rmV$ to +7V in 0.75 $\mu$s. What is the slew rate ?
@@ -331,10 +386,14 @@ We have,
 \end{solution}
 
 \begin{problem}\label{prob4.10}
-Fig.~P\ref{fig4.11} below shown the output voltage $v_{\rmo}$ of an opamp in response to a step input. What is the slow rate ?
-\begin{center}
-{\bf Figure P4.11}
-\end{center}
+Fig.~P4.10 below shown the output voltage $v_{\rmo}$ of an opamp in response to a step input. What is the slow rate ?
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.11.eps}
+
+\smallskip
+{\bf Fig. P4.10}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -387,9 +446,11 @@ An ideal opamp exhibits the following electrical properties.
 \section{Need for Opamp}\label{sec4.5}
 
 Consider the case of adding two signals $v_{1}$ and $v_{2}$ using resistors $\rmR_{1}$ and $\rmR_{2}$ as shown and $\rmR_{\rmL}$ is the load resistor.
-\begin{center}
-{\bf Figure 4.6}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.6.eps}
+\caption{Summing two voltages}\label{fig4.6}
+\end{figure}
 
 Applying KCL at junction,
 \begin{align}
@@ -428,6 +489,7 @@ Therefore, the best way to overcome these problems is to use opamp because the c
 
 Using opamp in closed loop configuration i.e., by connecting a component from output to input externally, opamp may be used for different applications. Very few of them are mentioned below.
 \begin{itemize}
+\itemsep=0pt
 \item[(i)] Inverting amplifier
 
 \item[(ii)] Non-inverting amplifier
@@ -468,9 +530,11 @@ Ideally, open-loop gain is infinity.
 \subsection{Inverting Amplifier}\label{sec4.6.1}
 
 An opamp connected as an inverting amplifier is shown in Fig.~\ref{fig4.7}. The input signal $v_{\text{in}}$ is applied through a series input resistor $\rmR_{1}$ to the inverting input. Also, the output is fed back through $\rmR_{\rmf}$ to the same input. The non-inverting terminal is grounded.
-\begin{center}
-{\bf Figure 4.7}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.7.eps}
+\caption{Inverting Amplifier}\label{fig4.7}
+\end{figure}
 
 We know that the input resistance $\rmR_{\rmi}$ of an opamp is very large (ideally infinity). Therefore, there is no current at the inverting input. So the current through $\rmR_{1}$ and $\rmR_{\rmf}$ must be equal.
 \begin{align}
@@ -502,11 +566,15 @@ The impedance seen from the source $v_{\text{in}}$ is,
 \rule{4cm}{1pt}
 \end{center}
 
-\begin{problem}\label{prob5.12}
-Given the opamp circuit shown in Fig.~P\eqref{figP4.12}, determine the value of $\rmR_{\rmf}$ required to obtain a closed-loop voltage gain of $-50$.
-\begin{center}
-{\bf Figure P4.12}
-\end{center}
+\begin{problem}\label{prob4.12}
+Given the opamp circuit shown in Fig.~P4.12, determine the value of $\rmR_{\rmf}$ required to obtain a closed-loop voltage gain of $-50$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.12.eps}
+
+\smallskip
+{\bf Fig. P4.12}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -524,10 +592,14 @@ Given
 \end{solution}
 
 \begin{problem}\label{prob4.13}
-For the inverting amplifier shown in Fig.~P\ref{figP4.13}, calculate the values of $\rmA_{\rmf}$ and $\rmR_{\text{in}}$.
-\begin{center}
-{\bf Figure 4.13}
-\end{center}
+For the inverting amplifier shown in Fig.~P4.13, calculate the values of $\rmA_{\rmf}$ and $\rmR_{\text{in}}$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.13.eps}
+
+\smallskip
+{\bf Fig. P4.13}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -573,14 +645,18 @@ We have $v_{1}=v_{2}$. Since $v_{2}=0$, $v_{1}$ is also at ground potential i.e.
 \end{solution}
 
 \begin{problem}\label{prob4.15}
-Determine the closed-loop gain and input resistance seen by source in the circuit shown in Fig.~P\ref{figP4.15}.
-\begin{center}
-{\bf Fig.~P4.15}
-\end{center}
+Determine the closed-loop gain and input resistance seen by source in the circuit shown in Fig.~P4.15.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.15.eps}
+
+\smallskip
+{\bf Fig. P4.15}
+\end{figure}
 \end{problem}
 
 \begin{solution}
-The given circuit in Fig.~P\ref{figP4.15} is an inverting amplifier with $\rmR_{1}=1\,\rmk\Omega$ and $\rmR_{\rmf}=47\, \rmk\Omega$.
+The given circuit in Fig.~P4.15 is an inverting amplifier with $\rmR_{1}=1\,\rmk\Omega$ and $\rmR_{\rmf}=47\, \rmk\Omega$.
 
 $\therefore$\quad Closed-loop gain $\rmA_{\rmf}=-\dfrac{\rmR_{\rmf}}{\rmR_{1}}=-\dfrac{47\times 10^{3}}{1\times 10^{3}}=-47$
 
@@ -589,10 +665,14 @@ Input resistance $\rmR_{\text{in}}=\rmR_{1}=1\,\rmk\Omega$
 \end{solution}
 
 \begin{problem}\label{prob4.16}
-If a signal voltage of 10 mV$_{\text{rms}}$ is applied to the inverting amplifier shown in Fig.~P\ref{figP4.16} what is the output voltage and what is its phase relationship with the input ?
-\begin{center}
-{\bf Figure 4.16}
-\end{center}
+If a signal voltage of 10 mV$_{\text{rms}}$ is applied to the inverting amplifier shown in Fig.~P4.16, what is the output voltage and what is its phase relationship with the input ?
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.16.eps}
+
+\smallskip
+{\bf Fig. P4.16}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -604,14 +684,19 @@ Given $v_{\text{in}}=10$ mV$_{\text{rms}}$, $R_{1}=33$ k$\Omega$, $\rmR_{\rmf}=3
 \end{align*}
 $\therefore$~ Output voltage $=v_{\rmo}=-10$\,mV.
 
+\smallskip
 The output voltage $v_{\rmo}$ is out of phase with input voltage $v_{\text{in}}$.
 \end{solution}
 
 \begin{problem}\label{prob4.17}
-For the inverting amplifier shown in Fig.~P\ref{figP4.17}, determine $\rmA_{\rmf}$, $v_{\rmo}$, $\rmi_{\text{in}}$, $\rmi_{\rmf}$, $\rmi_{\rmL}$ and $\rmi_{\rmO}$.
-\begin{center}
-{\bf Figure 4.17}
-\end{center}
+For the inverting amplifier shown in Fig.~P4.17, determine $\rmA_{\rmf}$, $v_{\rmo}$, $\rmi_{\text{in}}$, $\rmi_{\rmf}$, $\rmi_{\rmL}$ and $\rmi_{\rmO}$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.17.eps}
+
+\smallskip
+{\bf Fig. P4.17}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -632,7 +717,8 @@ Feedback current $\rmi_{\rmf}=\rmi_{\text{in}}=1\,\mu$A
 \medskip
 Load current $\rmi_{L}=\dfrac{v_{\rmo}}{\rmR_{\rmL}}=-\dfrac{10\times 10^{-3}}{2.2\times 10^{3}}=-4.55\mu\rmA$
 
-\medskip
+\eject
+
 Total output current
 \begin{align*}
 \rmi_{0} &= \rmi_{\rmf}+\rmi_{\rmL}\\[3pt]
@@ -644,9 +730,12 @@ Total output current
 \subsection{Non-inverting Amplifier}\label{sec4.6.2}
 
 An opamp connected as a non-inverting amplifier, is shown in Fig.~\ref{fig4.8}. The input signal $v_{\text{in}}$ is applied to the non-inverting input. The output is applied back to the inverting input through the feedback circuit formed by resistors $\rmR_{1}$ and $\rmR_{\rmf}$.
-\begin{center}
-{\bf Figure 4.8}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.8.eps}
+\caption{Non-inverting amplifier}\label{fig4.8}
+\end{figure}
+
 
 The closed-loop gain
 \begin{equation}
@@ -666,7 +755,7 @@ $\rmR_{\rmf}$ and $\rmR_{1}$ form a voltage divider.
 \therefore\quad v_{1}=v_{\rmf}=\dfrac{\rmR_{1}}{\rmR_{1}+\rmR_{\rmf}}\cdot v_{\rmo}\label{eq4.24}
 \end{equation}
 
-Substituting Eqn.~\eqref{eq4.23} and \eqref{eq4.24} in Eqn.~\eqref{eq4.22}, we get
+Substituting Eqn.~(4.23) and \eqref{eq4.24} in Eqn.~\eqref{eq4.22}, we get
 \begin{equation}
 v_{\rmo}=A\left(v_{\text{in}}-\dfrac{\rmR_{1}v_{\rmo}}{\rmR_{1}+\rmR_{\rmf}}\right)\label{eq4.25}
 \end{equation}
@@ -696,10 +785,14 @@ Notice that the closed-loop voltage gain is not at all dependent on the open-loo
 \end{center}
 
 \begin{problem}\label{prob4.18}
-Determine the gain of the amplifier shown in Fig.~P\ref{figP4.18}.
-\begin{center}
-{\bf Figure 4.18}
-\end{center}
+Determine the gain of the amplifier shown in Fig.~P4.18.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.18.eps}
+
+\smallskip
+{\bf Fig. P4.18}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -714,15 +807,19 @@ $\therefore$~ The closed-loop gain
 \end{solution}
 
 \begin{problem}\label{prob4.19}
-For the circuit of non-inverting amplifier shown in Fig.~P\ref{figP4.19}, determine
+For the circuit of non-inverting amplifier shown in Fig.~P4.19, determine
 \begin{itemize}
 \item[(i)] closed-loop gain $\rmA_{\rmf}$
 
 \item[(ii)] output voltage $v_{\rmo}$
 \end{itemize}
-\begin{center}
-{\bf Figure P4.19}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.19.eps}
+
+\smallskip
+{\bf Fig. P4.19}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -740,28 +837,35 @@ Closed-loop gain~~ $\rmA_{\rmf}$ \== $1+\dfrac{\rmR_{\rmf}}{\rmR_{1}}$\\[4pt]
 \end{solution}
 
 \begin{problem}\label{prob4.20}
-Determine the closed-loop gain of the amplifier shown in Fig.~P\ref{figP4.20}.
-\begin{center}
-{\bf Fig.~P4.20}
-\end{center}
+Determine the closed-loop gain of the amplifier shown in Fig.~P4.20.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.20.eps}
+
+\smallskip
+{\bf Fig. P4.20}
+\end{figure}
 \end{problem}
 
 \begin{solution}
-The circuit given in Fig.~P\ref{figP4.20} is a non-inverting amplifier with $\rmR_{1}=4.7$ k$\Omega$ and $\rmR_{\rmf}=47$ k$\Omega$.
+The circuit given in Fig.~P4.20 is a non-inverting amplifier with $\rmR_{1}=4.7$ k$\Omega$ and $\rmR_{\rmf}=47$ k$\Omega$.
 
 $\therefore$~ Closed-loop gain
 \begin{align*}
-\rmA_{\rmf} &= 1+\frac{\rmR_{\rmf}}{\rmR_{1}}\\[3pt]
-&= 1+\frac{47\times 10^{3}}{4.7\times 10^{3}}\\[3pt]
+\rmA_{\rmf} &= 1+\frac{\rmR_{\rmf}}{\rmR_{1}}= 1+\frac{47\times 10^{3}}{4.7\times 10^{3}}\\[3pt]
 \rmA_{\rmf} &= 11
 \end{align*}
 \end{solution}
 
 \begin{problem}\label{prob4.21}
-Find the value of $\rmR_{\rmf}$ that will produce a closed-loop gain of 8 in the non-inverting amplifier shown in Fig.~P\ref{figP4.21}.
-\begin{center}
+Find the value of $\rmR_{\rmf}$ that will produce a closed-loop gain of 8 in the non-inverting amplifier shown in Fig.~P4.21.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.21.eps}
+
+\smallskip
 {\bf Fig. P4.21}
-\end{center}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -770,21 +874,26 @@ Given $\rmR_{1}=12$ k$\Omega$, $\rmA_{\rmf}=8$
 \medskip
 We have $\rmA_{\rmf}=1+\dfrac{\rmR_{\rmf}}{\rmR_{1}}$
 \begin{align*}
-\therefore\quad \rmR_{\rmf} &= \rmR_{1}(\rmA_{f}-1)\\[3pt]
-&= 12\times 10^{3}\times (8-1)\\[3pt]
+\therefore\quad \rmR_{\rmf} &= \rmR_{1}(\rmA_{f}-1)= 12\times 10^{3}\times (8-1)\\[3pt]
 \therefore\quad \rmR_{\rmf} &= 844 \rmk \Omega
 \end{align*}
 \end{solution}
 
 \begin{problem}\label{prob4.22}
-For the cascaded amplifier shown in Fig.~P\ref{figP4.22}, determine the output voltage $v_{\rmo}$.
-\begin{center}
-{\bf Figure P4.22}
-\end{center}
+For the cascaded amplifier shown in Fig.~P4.22, determine the output voltage $v_{\rmo}$.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.22.eps}
+
+\smallskip
+{\bf Fig. P4.22}
+\end{figure}
 \end{problem}
 
+\vfill\eject
+
 \begin{solution}
-In the circuit shown in Fig.~P\ref{figP4.22}, the first stage is a non-inverting amplifier and second stage is an inverting amplifier.
+In the circuit shown in Fig.~P4.22, the first stage is a non-inverting amplifier and second stage is an inverting amplifier.
 
 \medskip
 Gain of first stage\quad $\rmA_{\rmf 1}=1+\dfrac{\rmR_{\rmf}}{\rmR_{1}}=1+\dfrac{10\times 10^{3}}{1\times 10^{3}}=11$
@@ -805,9 +914,11 @@ $\therefore$~ Overall voltage gain $\rmA_{\rmf}=\rmA_{\rmf 1}\cdot \rmA_{\rmf 2}
 \subsection{Voltage follower}\label{sec4.6.3}
 
 The voltage follower is a special case of non-inverting amplifier, where all the output voltage is fed back to the inverting input by a straight connection as shown in Fig.~\ref{fig4.9}.
-\begin{center}
-{\bf Figure 4.9}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.19.eps}
+\caption{Voltage Follower}\label{fig4.9}
+\end{figure}
 
 Comparing this circuit with non-inverting amplifier shown in Fig.~\ref{fig4.8}, we notice that $\rmR_{\rmf}=0$ and $\rmR_{1}=\infty$. Therefore, the closed-loop voltage gain.
 \begin{align}
@@ -819,10 +930,19 @@ Comparing this circuit with non-inverting amplifier shown in Fig.~\ref{fig4.8}, 
 Since the output voltage $v_{0}$ has the same magnitude and phase as $v_{\text{in}}$, this configuration is called a {\em voltage follower}. This circuit is used in applications where, power gain and impedence isolation are of primary concern.
 
 \begin{problem}\label{prob4.23}
-If a input signal voltage of 10 mV is applied to each amplifier in Fig.~P\ref{fig4.23}(a), (b), (c) and (d) shown below, what are the output voltages and what is their phase relationship with inputs.
-\begin{center}
-{\bf Figure P4.23a,b,c,d}
-\end{center}
+If a input signal voltage of 10 mV is applied to each amplifier in Fig.~P4.23(a), (b), (c) and (d) shown below, what are the output voltages and what is their phase relationship with inputs.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.23ab.eps}
+
+\bigskip
+\smallskip
+
+\includegraphics{chap4/figP4.23cd.eps}
+
+\medskip
+{\bf Fig. P4.23}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -830,27 +950,29 @@ Given $v_{\text{in}}=10$ mV
 \begin{itemize}
 \item[(a)] It is a voltage follower.
 \begin{align*}
-\therefore\quad & \rmA_{v}=\frac{v_{\rmo}}{v_{\text{in}}}=1\\[3pt]
+\therefore\quad & \rmA_{v}=\frac{v_{\rmo}}{v_{\text{in}}}=1\\[5pt]
 \therefore\quad & v_{\rmo}=v_{\text{in}}=10\text{~mV}
 \end{align*}
 
 \item[(b)] It is an inverting amplifier.
 \begin{align*}
-& \rmA_{v} \frac{\rmA_{\rmo}}{\rmV_{\text{in}}}=-\frac{\rmR_{\rmf}}{\rmR_{1}}=-\frac{100\text{~k}}{100\text{~k}}=-1\\[3pt]
+& \rmA_{v} \frac{\rmA_{\rmo}}{\rmV_{\text{in}}}=-\frac{\rmR_{\rmf}}{\rmR_{1}}=-\frac{100\text{~k}}{100\text{~k}}=-1\\[5pt]
 & v_{\rmo}=-v_{\text{in}}=-10\text{~mV.}
 \end{align*}
 $v_{\rmo}$ is out of phase with $v_{\text{in}}$.
 
+\eject
+
 \item[(c)] It is a non-inverting amplifier.
 \begin{align*}
-\rmA_{v} &= \frac{v_{\rmo}}{v_{\text{in}}}=1+\frac{\rmR_{\rmf}}{\rmR_{1}}=1+\frac{1\rmm}{47\rmk}=22.28\\[3pt]
+\rmA_{v} &= \frac{v_{\rmo}}{v_{\text{in}}}=1+\frac{\rmR_{\rmf}}{\rmR_{1}}=1+\frac{1\rmm}{47\rmk}=22.28\\[4pt]
 \therefore\quad v_{\rmo} &= 22.28 v_{\text{in}}=22.28\times 10\times 10^{-3}=222.77\text{~mV}
 \end{align*}
 $v_{\rmo}$ is in-phase with $v_{\text{in}}$.
 
 \item[(d)] It is an inverting amplifier.
 \begin{align*}
-\rmA_{v} &= \frac{v_{\rmo}}{v_{\text{in}}}=-\frac{\rmR_{\rmf}}{\rmR_{1}}=-\frac{330\rmk}{33\rmk}=-10\\[3pt]
+\rmA_{v} &= \frac{v_{\rmo}}{v_{\text{in}}}=-\frac{\rmR_{\rmf}}{\rmR_{1}}=-\frac{330\rmk}{33\rmk}=-10\\[4pt]
 \therefore\quad v_{\rmo} &=-10v_{\text{in}}=-10\times 10\times 10^{-3}=-100\text{~mV}
 \end{align*}
 $v_{\rmo}$ is out of phase with $v_{\text{in}}$.
@@ -858,10 +980,14 @@ $v_{\rmo}$ is out of phase with $v_{\text{in}}$.
 \end{solution}
 
 \begin{problem}\label{prob4.24}
-Find the value of $\rmR_{\rmf}$ that will produce the indicated closed loop gain in each amplifier in Fig.~P\ref{figP4.14}(a), (b) and (c) shown below.
-\begin{center}
-{\bf Figure P4.24a,b,c}
-\end{center}
+Find the value of $\rmR_{\rmf}$ that will produce the indicated closed loop gain in each amplifier in Fig.~P4.24(a), (b) and (c) shown below.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.24.eps}
+
+\smallskip
+{\bf Fig. P4.24}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -872,9 +998,11 @@ Given\quad $\rmA_{v}=50$ and $\rmR_{1}=1$~k$\Omega$
 
 We have
 \begin{align*}
-\rmA_{v} &= 1+\frac{\rmR_{\rmf}}{\rmR_{1}}=50\\[3pt]
+\rmA_{v} &= 1+\frac{\rmR_{\rmf}}{\rmR_{1}}=50\\[4pt]
 \therefore\quad \rmR_{\rmf} &= 49\text{~k}\Omega
 \end{align*}
+
+\eject
 
 \item[(b)] It is an inverting amplifier.
 
@@ -904,9 +1032,11 @@ The circuit which provides an output voltage proportional or equal to algebraic 
 
 \smallskip
 \itheading{Adder in inverting configuration}~: Consider an opamp in inverting configuration as shown in Fig.~\ref{fig4.10}. Three resistors $\rmR_{\rma}$, $\rmR_{\rmb}$ and $\rmR_{\rmc}$ are connected to the inverting terminal. Signals $\rmV_{\rma}$, $\rmV_{\rmb}$ and $\rmV_{\rmc}$ are fed to the opamp through $\rmR_{\rma}$, $\rmR_{\rmb}$ and $\rmR_{\rmc}$ respectively.
-\begin{center}
-{\bf Figure 4.10}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.10.eps}
+\caption{A summer using opamp}\label{fig4.10}
+\end{figure}
 
 Applying KCL at node $v_{1}$, 
 \begin{equation}
@@ -944,10 +1074,14 @@ If in Eqn.~\eqref{eq4.31} $\rmR_{\rma}=\rmR_{\rmb}=\rmR_{\rmc}=\rmR_{\rmF}$, the
 \end{center}
 
 \begin{problem}\label{prob4.25}
-Find the output voltage of the circuit shown in Fig.~P\ref{figP4.24}.
-\begin{center}
-{\bf Figure P4.24}
-\end{center}
+Find the output voltage of the circuit shown in Fig.~P4.25.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.24a.eps}
+
+\smallskip
+{\bf Fig. P4.25}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -959,10 +1093,14 @@ Output voltage $=\rmV_{\rmo}=-11$ V.
 \end{solution}
 
 \begin{problem}\label{prob4.26}
-Find the output voltage in the circuit shown in Fig.~P\eqref{figP4.25}.
-\begin{center}
-{\bf Figure P4.25}
-\end{center}
+Find the output voltage in the circuit shown in Fig.~P4.26.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.25.eps}
+
+\smallskip
+{\bf Fig. P4.26}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -997,10 +1135,14 @@ We have
 
 Let $\rmR_{\rmF}=2~\rmk\Omega$ then, $\rmR=\dfrac{\rmR_{\rmF}}{2}=1~\rmk\Omega$
 
-The designed circuit is shown in Fig.~P\ref{figP4.26}.
-\begin{center}
-{\bf Figure P4.26}
-\end{center}
+The designed circuit is shown in Fig.~P4.27.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.26.eps}
+
+\smallskip
+{\bf Fig. P4.27}
+\end{figure}
 \end{solution}
 
 \begin{problem}\label{prob4.28}
@@ -1025,20 +1167,30 @@ $$
 \rmR_{\rma}=100~\rmk\Omega,\quad \rmR_{\rmb}=10~\rmk\Omega\quad\text{and}\quad \rmR_{\rmc}=1~\rmk\Omega
 $$
 
-The circuit is shown in Fig.~P\ref{figP4.27}.
-\begin{center}
-{\bf Figure 4.27}
-\end{center}
+\eject
+
+The circuit is shown in Fig.~P4.28.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.27.eps}
+
+\smallskip
+{\bf Fig. P4.28}
+\end{figure}
 \end{solution}
 
 \begin{problem}\label{prob4.29}
 \begin{itemize}
-\item[(i)] Find the output voltage $\rmV_{\rmo}$ in Fig.~P\ref{figP4.29}, if $\rmR_{\rmf}=10~\rmk\Omega$, $\rmR_{\rma}=2~\rmk\Omega$ and $\rmR_{\rmb}=5~\rmk\Omega$.
+\item[(i)] Find the output voltage $\rmV_{\rmo}$ in Fig.~P4.29, if $\rmR_{\rmf}=10~\rmk\Omega$, $\rmR_{\rma}=2~\rmk\Omega$ and $\rmR_{\rmb}=5~\rmk\Omega$.
 
 \item[(ii)] Find $\rmR_{\rma}$ and $\rmR_{\rmb}$, if $\rmV_{\rmo}$ is the average of $\rmV_{\rma}$ and $\rmV_{\rmb}$ with $\rmR_{\rmf}=10~\rmk\Omega$.
-\begin{center}
-{\bf Figure 4.28}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.28.eps}
+
+\smallskip
+{\bf Fig. P4.29}
+\end{figure}
 \end{itemize}
 \end{problem}
 
@@ -1048,8 +1200,8 @@ The circuit is shown in Fig.~P\ref{figP4.27}.
 
 From the circuit we have,
 \begin{align*}
-\rmV_{\rmo} &= -\left(\frac{\rmR_{\rmf}}{\rmR_{\rma}}\rmV_{\rma}+\frac{\rmR_{\rmf}}{\rmR_{\rmb}}\rmV_{\rmb}\right)\\[4pt]
-&= -\left(\frac{10}{2}\rmV_{\rma}+\frac{10}{5}\rmV_{\rmb}\right)
+\rmV_{\rmo} &= -\left(\frac{\rmR_{\rmf}}{\rmR_{\rma}}\rmV_{\rma}+\frac{\rmR_{\rmf}}{\rmR_{\rmb}}\rmV_{\rmb}\right)
+= -\left(\frac{10}{2}\rmV_{\rma}+\frac{10}{5}\rmV_{\rmb}\right)
 \end{align*}
 Output voltage $\rmV_{\rma}=-(5\rmV_{\rma}+2\rmV_{\rmb})$
 
@@ -1062,6 +1214,8 @@ The required output voltage
 \text{i.e.,}\quad \rmV_{\rmo} &=-\left(\frac{1}{2}\rmV_{\rmo}+\frac{1}{2}\rmV_{\rmb}\right)
 \end{align*}
 
+\vfill\eject
+
 From the circuit we have $\rmV_{\rmo}=-\left(\dfrac{\rmR_{\rmf}}{\rmR_{\rma}}\rmV_{\rma}+\dfrac{\rmR_{\rmf}}{\rmR_{\rmb}}\rmV_{\rmb}\right)$
 
 \medskip
@@ -1073,10 +1227,14 @@ $\therefore$~ Since $\rmR_{\rmF}=10~\rmk\Omega$, we get $\rmR_{\rma}=\rmR_{\rmb}
 \end{solution}
 
 \begin{problem}\label{prob4.30}
-Calculate $\rmV_{\rmo}$ for the circuit shown in Fig.~P\ref{figP4.30}, if $\rmV_{1}=3\rmV$ and $\rmV_{2}=2\rmV$.
-\begin{center}
-{\bf Figure P4.30}
-\end{center}
+Calculate $\rmV_{\rmo}$ for the circuit shown in Fig.~P4.30, if $\rmV_{1}=3\rmV$ and $\rmV_{2}=2\rmV$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.29.eps}
+
+\smallskip
+{\bf Fig. P4.30}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1088,21 +1246,23 @@ The output of first stage $\rmV_{\rmo}=-\dfrac{\rmR_{\rmf}}{\rmR_{1}}\rmV_{1}=-\
 \smallskip
 $\therefore$~ The output voltage from the second stage is,
 \begin{align*}
-\rmV_{\rmo} &= -\left(\dfrac{10}{5}\rmV^{1}_{0}+\dfrac{10}{2}\rmV_{2}\right)\\[3pt]
-&=-\left[\frac{10}{5}\times (-6)+\dfrac{10}{2}\times (2)\right]\\[3pt]
+\rmV_{\rmo} &= -\left(\dfrac{10}{5}\rmV^{1}_{0}+\dfrac{10}{2}\rmV_{2}\right)\\[4pt]
+&=-\left[\frac{10}{5}\times (-6)+\dfrac{10}{2}\times (2)\right]\\[4pt]
 \rmV_{\rmo} &= 4\rmV
 \end{align*}
 \end{solution}
 
 \itheading{Adder in Non-inverting configuration}~: If input voltage sources and resistors are connected to the non-inverting terminal of the opamp as shown in Fig.~\ref{fig4.11}, the circuit is called {\em non-inverting adder or summer}.
-\begin{center}
-{\bf Figure 4.11}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.11a.eps}
+\caption{}\label{fig4.11}
+\end{figure}
 
 Since the input resistance of the non-inverting amplifier is very large, we can employ superposition theorem to obtain voltage at the non-inverting input terminal. 
 \begin{align}
-\text{i.e.,}\qquad \rmV_{1} &= \frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rma}+\frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rmb}+\frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rmc}\notag\\[4pt]
-\rmV_{1} &= \frac{\rmV_{\rma}}{3}+\frac{\rmV_{\rmb}}{3}+\frac{\rmV_{c}}{3}\notag\\[4pt]
+\text{i.e.,}\qquad \rmV_{1} &= \frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rma}+\frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rmb}+\frac{\frac{\rmR}{2}}{\rmR+\frac{\rmR}{2}}\rmV_{\rmc}\notag\\[5pt]
+\rmV_{1} &= \frac{\rmV_{\rma}}{3}+\frac{\rmV_{\rmb}}{3}+\frac{\rmV_{c}}{3}\notag\\[5pt]
 \rmV_{1} &= \frac{\rmV_{\rma}+\rmV_{\rmb}+\rmV_{\rmc}}{3}\label{eq4.34}
 \end{align}
 \begin{equation}
@@ -1121,6 +1281,8 @@ If the gain $\left(1+\dfrac{\rmR_{\rmF}}{\rmR_{1}}\right)$ in Eqn.~\eqref{eq4.36
 \rmV_{\rmo}=\rmV_{\rma}+\rmV_{\rmb}+\rmV_{\rmc}\label{eq4.37}
 \end{equation}
 
+\eject
+
 \begin{center}
 \rule{4cm}{1pt}\\
 {\bf\Large Problems}\\[-3pt]
@@ -1128,10 +1290,14 @@ If the gain $\left(1+\dfrac{\rmR_{\rmF}}{\rmR_{1}}\right)$ in Eqn.~\eqref{eq4.36
 \end{center}
 
 \begin{problem}\label{prob4.31}
-Determine the output voltage $\rmV_{\rmo}$ in the circuit shown in Fig.~P\ref{figP4.30}.
-\begin{center}
-{\bf Figure P4.30}
-\end{center}
+Determine the output voltage $\rmV_{\rmo}$ in the circuit shown in Fig.~P4.31.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.30.eps}
+
+\smallskip
+{\bf Fig. P4.31}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1151,11 +1317,17 @@ We have closed loop gain \ $A_{v}=\dfrac{v_{\rmo}}{v_{\text{in}}}=\dfrac{v_{\rmo
 \end{align*}
 \end{solution}
 
+\eject
+
 \begin{problem}\label{prob4.32}
-Determine the output voltage $\rmV_{\rmo}$ in the circuit shown in Fig.~P\ref{figP4.32}.
-\begin{center}
-{\bf Figure P5.31}
-\end{center}
+Determine the output voltage $\rmV_{\rmo}$ in the circuit shown in Fig.~P4.32.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.31.eps}
+
+\smallskip
+{\bf Fig. P4.32}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1165,9 +1337,10 @@ The given circuit is a summer in non-inverting configuration with two inputs. Ap
 \rmV_{1} &= 0.1875+0.625\\[3pt]
 \rmV_{1} &= 0.8125\rmV
 \end{align*}
+\vskip -.7cm
 \begin{align*}
-\therefore\quad \text{Output voltage~ } \rmV_{\rmo} &= \left(1+\frac{\rmR_{\rmF}}{\rmR_{1}}\right)\rmV_{1}\\[4pt]
-&= \left(1+\frac{2.2\times 10^{3}}{1\times 10^{3}}\right)\times 0.8125\\[3pt]
+\therefore\quad \text{Output voltage~ } \rmV_{\rmo} &= \left(1+\frac{\rmR_{\rmF}}{\rmR_{1}}\right)\rmV_{1}
+= \left(1+\frac{2.2\times 10^{3}}{1\times 10^{3}}\right)\times 0.8125\\[3pt]
 \rmV_{\rmo} &= 2.6\rmV
 \end{align*}
 \end{solution}
@@ -1175,9 +1348,11 @@ The given circuit is a summer in non-inverting configuration with two inputs. Ap
 \itheading{Subtractor~:}
 
 A basic differential amplifier (i.e., inputs are applied to both inverting and non-inverting terminals) can be used as a {\em subtractor} as shown in Fig.~\ref{fig4.12}. If all resistors are equal, then the output voltage can be derived by using superposition principle.
-\begin{center}
-{\bf Figure 4.12}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/fig4.12.eps}
+\caption{}\label{fig4.12}
+\end{figure}
 
 To find the output voltage $\rmV_{\rmo\rma}$ due to input $\rmV_{\rma}$ alone, make $\rmV_{\rmb}=0$. Then the circuit becomes non-inverting amplifier.
 \begin{align}
@@ -1211,6 +1386,8 @@ Substituting Eqns.~\eqref{eq4.40} and \eqref{eq4.41} in Eqn.~\eqref{eq4.42},
 
 Thus, the output voltage $\rmV_{\rmo}$ is equal to the voltage $\rmV_{\rma}$ applied to the non-inverting terminal minus the voltage $\rmV_{\rmb}$ applied to the inverting terminal. Therefore the circuit is called as {\em subtractor}.
 
+\eject
+
 \begin{center}
 \rule{4cm}{1pt}\\
 {\bf\Large Problems}\\[-3pt]
@@ -1218,10 +1395,14 @@ Thus, the output voltage $\rmV_{\rmo}$ is equal to the voltage $\rmV_{\rma}$ app
 \end{center}
 
 \begin{problem}\label{prob4.33}
-In the subtractor circuit shown in Fig.~P\ref{figP4.32}, determine the output voltage.
-\begin{center}
-{\bf Figure P4.32}
-\end{center}
+In the subtractor circuit shown in Fig.~P4.33, determine the output voltage.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.32.eps}
+
+\smallskip
+{\bf Fig. P4.33}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1244,11 +1425,17 @@ $\therefore$~ The total output voltage
 \end{align*}
 \end{solution}
 
-\begin{problem}\label{prob4.33}
-Find the output voltage in the circuit shown in Fig.~P\ref{figP4.33}.
-\begin{center}
-{\bf Figure P4.33}
-\end{center}
+\eject
+
+\begin{problem}\label{prob4.34}
+Find the output voltage in the circuit shown in Fig.~P4.34.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.96]{chap4/figP4.33.eps}
+
+\smallskip
+{\bf Fig. P4.34}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1258,27 +1445,34 @@ The output voltage can be obtained by using superposition theorem as below.
 To find the output voltage $\rmV_{\rmo\rma}$ due to input $\rmV_{\rma}$ alone, make $\rmV_{\rmb}=\rmV_{\rmc}=0$.
 
 \smallskip
-Then the circuit becomes as shown in Fig.~P\ref{figP5.33.1}.
-\begin{center}
-{\bf Figure 4.33.1}
-\end{center}
+Then the circuit becomes as shown in Fig.~P4.34.1.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.96]{chap4/figP4.33.1.eps}
 
-From Fig.~P\ref{figP4.33.1},
+\smallskip
+{\bf Fig. P4.34.1}
+\end{figure}
+
+From Fig.~P4.34.1,
 \begin{align*}
-\rmV_{1} &= \frac{2\times 10^{3}}{1\times 10^{3}+2\times 10^{3}}\rmV_{\rma}\\[3pt]
-&= 0.667\times 0.2\\[3pt]
+\rmV_{1} &= \frac{2\times 10^{3}}{1\times 10^{3}+2\times 10^{3}}\rmV_{\rma}= 0.667\times 0.2\\[3pt]
 \rmV_{1} &= 0.1334\rmV\\[3pt]
 \therefore\quad \rmV_{\rmo\rma} &= \left(1+\frac{\rmR_{\rmF}}{\rmR_{1}}\right)\rmV_{1}\\[3pt]
 &= \left(1+\frac{10\times 10^{3}}{2.2\times 10^{3}}\right)\times 0.1334\\[3pt]
 &= 0.7398\rmV
 \end{align*}
 
-To find the output voltage $\rmV_{\rmo\rmb}$ due to input $\rmV_{\rmb}$ only, make $\rmV_{\rma}=\rmV_{\rmc}=0$. Then the circuit becomes as shown in Fig.~P\ref{figP4.33.2}.
-\begin{center}
-{\bf Figure P4.33.2}
-\end{center}
+To find the output voltage $\rmV_{\rmo\rmb}$ due to input $\rmV_{\rmb}$ only, make $\rmV_{\rma}=\rmV_{\rmc}=0$. Then the circuit becomes as shown in Fig.~P4.33.2.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.33.2.eps}
 
-From Fig.~P\ref{figP4.33.2},
+\smallskip
+{\bf Fig. P4.34.2}
+\end{figure}
+
+From Fig.~P4.34.2,
 \begin{align*}
 \rmV_{2} &= \frac{1\times 10^{3}}{1\times 10^{3}+2\times 10^{3}}\times \rmV_{\rmb}\\[4pt]
 &= 0.333\times 0.1\\[4pt]
@@ -1287,21 +1481,25 @@ From Fig.~P\ref{figP4.33.2},
 &= \left(1+\frac{10\times 10^{3}}{2.2\times 10^{3}}\right)\times 0.0333\\[3pt]
 \rmV_{\rmo\rmb} &= 0.1847\rmV
 \end{align*}
-To find the output voltage $\rmV_{\rmo\rmc}$ due to input $\rmV_{\rmc}$ only, make $\rmV_{\rma}=\rmV_{\rmb}=0$. Then the circuit becomes as shown in Fig.~P\ref{figP4.33.3}.
-\begin{center}
-{\bf Figure P4.33.3}
-\end{center}
+To find the output voltage $\rmV_{\rmo\rmc}$ due to input $\rmV_{\rmc}$ only, make $\rmV_{\rma}=\rmV_{\rmb}=0$. Then the circuit becomes as shown in Fig.~P4.34.3.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.33.3.eps}
 
-From Fig.~P\ref{figP4.33.3}, 
+\smallskip
+{\bf Fig. P4.34.3}
+\end{figure}
+
+From Fig.~P4.34.3, 
 \begin{align*}
-\rmV_{\rmo\rmc} &= -\frac{\rmR_{\rmF}}{\rmR_{1}}\rmV_{\rmc}\\[3pt]
-&= -\frac{10\times 10^{3}}{2.2\times 10^{3}}\times 0.3\\[3pt]
+\rmV_{\rmo\rmc} &= -\frac{\rmR_{\rmF}}{\rmR_{1}}\rmV_{\rmc}\\[4pt]
+&= -\frac{10\times 10^{3}}{2.2\times 10^{3}}\times 0.3\\[4pt]
 \rmV_{\rmo\rmc} &=-1.364\rmV
 \end{align*}
 $\therefore$~ The total output voltage 
 \begin{align*}
-\rmV_{\rmo} &= \rmV_{\rmo\rma}+\rmV_{\rmo\rmb}+\rmV_{\rmo\rmc}\\[3pt]
-          &= 0.7398+0.1847-1.364\\[3pt]
+\rmV_{\rmo} &= \rmV_{\rmo\rma}+\rmV_{\rmo\rmb}+\rmV_{\rmo\rmc}\\[4pt]
+          &= 0.7398+0.1847-1.364\\[4pt]
 \rmV_{\rmo} &= -0.4395\rmV
 \end{align*}
 \end{solution}
@@ -1309,15 +1507,19 @@ $\therefore$~ The total output voltage
 \subsection{Opamp Integrating Circuit ({\em Integrator})}\label{sec4.6.5}
 
 An {\em integrator} is a circuit in which the output voltage is the integral of the input voltage. Fig.~\ref{fig4.13} shows an integrator circuit using opamp. The integrator may be constructed from a basic inverting amplifier if feedback resistor $\rmR_{\rmF}$ is replaced by a capacitor $\rmC_{\rmF}$.
-\begin{center}
-{\bf Figure 4.13}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.13.eps}
+\caption{Basic integrator circuit}\label{fig4.13}
+\end{figure}
 
 Applying KCL at node $v_{1}$,
 \begin{align}
-\rmi_{1} &= \rmi_{\rmB}+\rmi_{\rmF}\label{eq4.44}\\[3pt]
+\rmi_{1} &= \rmi_{\rmB}+\rmi_{\rmF}\label{eq4.44}\\[4pt]
 \rmi_{1} &\simeq \rmi_{\rmF}\quad (\because \ \rmi_{\rmB}=0)\label{eq4.45}
 \end{align}
+
+\eject
 
 We know that current through a capacitor is given by
 \begin{equation}
@@ -1352,10 +1554,21 @@ where $\rmC$ is the integration constant and is proportional to the value of the
 \end{center}
 
 \begin{problem}\label{prob4.35}
-In the circuit shown in Fig.~P\ref{figP4.34}, the input is a step (dc) voltage as shown in Fig.~P\ref{figP4.14.1}. Determine the output voltage and sketch it. Assume that the initial voltage across capacitor is zero. Time constant $\rmR_{1}\rmC_{\rmF}=1$ second.
-\begin{center}
-{\bf Figure P4.34, P4.34.1}
-\end{center}
+In the circuit shown in Fig.~P4.35, the input is a step (dc) voltage as shown in Fig.~P4.35.1. Determine the output voltage and sketch it. Assume that the initial voltage across capacitor is zero. Time constant $\rmR_{1}\rmC_{\rmF}=1$ second.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.34.eps}
+
+\smallskip
+{\bf Fig. P4.35}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.34.1.eps}
+
+\smallskip
+{\bf Fig. P4.35.1}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1369,10 +1582,14 @@ The input is constant, 3V for $0\leq \rmt\leq 5$ sec. The given circuit is an id
 v_{\rmo} &= -3\rmt \ \rmV
 \end{align*}
 
-The output voltage $v_{\rmo}$ is sketched in Fig.~P\ref{figP4.34.2}.
-\begin{center}
-{\bf Figure 4.34.2}
-\end{center}
+The output voltage $v_{\rmo}$ is sketched in Fig.~P4.35.2.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.34.2.eps}
+
+\smallskip
+{\bf Fig. P4.35.2}
+\end{figure}
 \end{solution}
 
 \begin{problem}\label{prob4.36}
@@ -1395,17 +1612,25 @@ v_{\rmo} &= \frac{0.015}{\pi}[\cos 4000 \pi\rmt-1]\text{~mV}
 \end{solution}
 
 \begin{problem}\label{prob4.37}
-Determine and sketch the output voltage waveform if an input voltage shown in Fig.~P\ref{figP4.36} is applied to an ideal integrator. Assume time constant $\rmR_{1}\rmC_{\rmF}=1$ second and initial voltage across capacitor = 0 V.
-\begin{center}
-{\bf Figure P4.36}
-\end{center}
+Determine and sketch the output voltage waveform if an input voltage shown in Fig.~P4.37 is applied to an ideal integrator. Assume time constant $\rmR_{1}\rmC_{\rmF}=1$ second and initial voltage across capacitor = 0 V.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.36.eps}
+
+\smallskip
+{\bf Fig. P4.37}
+\end{figure}
 \end{problem}
 
 \begin{solution}
-The output voltage waveform is sketched in Fig.~P\ref{figP4.36.1}.
-\begin{center}
-{\bf Figure P4.36.1}
-\end{center}
+The output voltage waveform is sketched in Fig.~P4.37.1.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.36.1.eps}
+
+\smallskip
+{\bf Fig. P4.37.1}
+\end{figure}
 \end{solution}
 
 \begin{problem}\label{prob4.38}
@@ -1421,18 +1646,24 @@ $\therefore$~ $v_{\text{in}}=2.5\sin 6283\,\rmt$.
 
 We have,
 \begin{align*}
-v_{\rmo} &= -\frac{1}{\rmR_{1}\rmC_{\rmF}}\int\limits^{\rmt}_{0}v_{\text{in}}\dt +\rmC\\[3pt]
-v_{\rmo} &= -\frac{1}{0.1\times 10^{-3}}\int\limits^{\rmt}_{0}2.5\sin 6283\,\rmt\,\dt\qquad [\because \ \rmC =0]\\[3pt]
-&=-25\times 10^{3}\left[-\frac{\cos 6283\rmt}{6283}\right]^{\rmt}_{0}\\[3pt]
+v_{\rmo} &= -\frac{1}{\rmR_{1}\rmC_{\rmF}}\int\limits^{\rmt}_{0}v_{\text{in}}\dt +\rmC\\
+v_{\rmo} &= -\frac{1}{0.1\times 10^{-3}}\int\limits^{\rmt}_{0}2.5\sin 6283\,\rmt\,\dt\qquad [\because \ \rmC =0]\\
+&=-25\times 10^{3}\left[-\frac{\cos 6283\rmt}{6283}\right]^{\rmt}_{0}\\
 v_{\rmo} &= 3.98[\cos 6283\,\rmt-1]\rmV
 \end{align*}
 \end{solution}
 
+\vfill\eject
+
 \begin{problem}\label{prob4.39}
-Determine the rate of change of the output voltage in response to the step input as shown in Fig.~P\ref{figP4.38} to an ideal integrator with time constant = 1.12 msec.
-\begin{center}
-{\bf Figure P4.38}
-\end{center}
+Determine the rate of change of the output voltage in response to the step input as shown in Fig.~P4.39 to an ideal integrator with time constant = 1.12 msec.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.38.eps}
+
+\smallskip
+{\bf Fig. P4.39}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1444,10 +1675,9 @@ We have \ $v_{\rmo}=-\dfrac{1}{\rmR_{1}\rmC_{\rmF}}\int v_{\text{in}}\dt +\rmC$.
 \medskip
 Differentiating with respect to time, we get
 \begin{align*}
-\dfrac{\rmd v_{\rmo}}{\dt} &= -\frac{v_{\text{in}}}{\rmR_{1}\rmC_{\rmF}}\\[3pt]
-&= -\dfrac{5}{1.12\times 10^{-3}}\\[3pt]
-\dfrac{\rmd v_{\rmo}}{\dt} &= -4464\text{~V/s.}\\[3pt]
-&\simeq -4.464\text{~mV}/\mu\rms.
+\dfrac{\rmd v_{\rmo}}{\dt} &= -\frac{v_{\text{in}}}{\rmR_{1}\rmC_{\rmF}}
+= -\dfrac{5}{1.12\times 10^{-3}}\\[3pt]
+\dfrac{\rmd v_{\rmo}}{\dt} &= -4464\text{~V/s.}\simeq -4.464\text{~mV}/\mu\rms.
 \end{align*}
 $\therefore$~ The rate of change of output voltage is 4.464 mV/$\mu$s.
 \end{solution}
@@ -1455,9 +1685,13 @@ $\therefore$~ The rate of change of output voltage is 4.464 mV/$\mu$s.
 \subsection{Opamp Differentiating Circuit ({\em Differentiator})}\label{sec4.6.6}
 
 A {\em differentiator} is a circuit in which the output voltage is the time derivative of the input voltage. Fig.~\ref{fig4.14} shows a differentiator circuit using opamp. The differentiator may be constructed from a basic inverting amplifier if an input resistor $\rmR_{1}$ is replaced by a capacitor $\rmC_{1}$.
-\begin{center}
-{\bf Figure 4.14}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/fig4.14.eps}
+\caption{Basic differentiator circuit}\label{fig4.14}
+\end{figure}
+
+\eject
 
 Applying KCL at node $v_{1}$,
 \begin{align}
@@ -1498,11 +1732,17 @@ v_{\rmo} &= -3000\pi \cos 3000\, \pi\,\rmt \text{~ mV.}
 \end{align*}
 \end{solution}
 
+\eject
+
 \begin{problem}\label{prob4.41}
-The input voltage waveform shown in Fig.~P\ref{figP4.40} is applied to a basic differentiator circuit with $\rmR_{\rmF}=1.5\,\rmk\Omega$ and $\rmC_{1}=0.1\,\mu\rmF$. Draw the output voltage waveform.
-\begin{center}
-{\bf Figure P4.41}
-\end{center}
+The input voltage waveform shown in Fig.~P4.40 is applied to a basic differentiator circuit with $\rmR_{\rmF}=1.5\,\rmk\Omega$ and $\rmC_{1}=0.1\,\mu\rmF$. Draw the output voltage waveform.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.40.eps}
+
+\smallskip
+{\bf Fig. P4.41}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1516,6 +1756,7 @@ From the given input voltage waveform,
 $$
 \rmT=1\text{~msec}\quad \therefore\quad f=\dfrac{1}{\rmT}=1\text{~kHz}
 $$
+\vskip -.7cm
 \begin{align*}
 \therefore\quad \omega &= 2\pi\rmf =2\pi\times 1000=2000\,\pi\text{~rad/sec.}\\[3pt]
 \therefore\quad v_{\text{in}} &= 2\sin 2000\,\pi\, \rmt\\[3pt]
@@ -1524,11 +1765,17 @@ $$
 &= -0.15\times 10^{-3}\times 2\times 2000\,\pi\,\cos 2000\,\pi\,\rmt\\[3pt]
 \therefore\quad v_{\rmo} &= -1.885\cos 2000\,\pi\,\rmt\;\rmV
 \end{align*}
-The output voltage waveform is plotted in Fig.~P\ref{figP4.40.1}.
-\begin{center}
-{\bf Figure P4.40.1}
-\end{center}
+The output voltage waveform is plotted in Fig.~P4.41.1.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.95]{chap4/figP4.40.1.eps}
+
+\smallskip
+{\bf Fig. P4.41.1~: Illustrating the problem 4.41}
+\end{figure}
 \end{solution}
+
+\vfill\eject
 
 \begin{problem}\label{prob4.42}
 In a basic differentiator circuit, the input is a sine wave with a peak-to-peak amplitude of 3V at 200 Hz. Determine the output voltage. Given : time constant $\rmR_{\rmF}\rmC_{1}=0.15$ msec.
@@ -1550,10 +1797,14 @@ $\therefore$~ Output voltage $v_{\rmo}=-0.283\cos 400\,\pi\rmt \ \rmV$.
 \end{solution}
 
 \begin{problem}\label{prob4.43}
-Determine the output voltage of a basic opamp differentiator for the triangular-wave input shown in Fig.~P\ref{fig4.42}. Given that the time constant $\rmR_{\rmF}\rmC_{1}=2.2\,\mu\rms$.
-\begin{center}
-{\bf Figure P4.42}
-\end{center}
+Determine the output voltage of a basic opamp differentiator for the triangular-wave input shown in Fig.~P4.43. Given that the time constant $\rmR_{\rmF}\rmC_{1}=2.2\,\mu\rms$.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.42.eps}
+
+\smallskip
+{\bf Fig. P4.43}
+\end{figure}
 \end{problem}
 
 \begin{solution}
@@ -1575,10 +1826,14 @@ v_{\rmo} &= 4.4\,\rmV
 \end{align*}
 These values repeats for every $10\,\mu\rms$.
 
-The output voltage waveform is plotted relative to the input in Fig.~P\ref{figP4.42.1}.
-\begin{center}
-{\bf Figure P4.42.1}
-\end{center}
+The output voltage waveform is plotted relative to the input in Fig.~P4.43.1.
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/figP4.42.1.eps}
+
+\smallskip
+{\bf Fig. P4.43.1}
+\end{figure}
 \end{solution}
 
 \begin{center}
@@ -1642,19 +1897,23 @@ The output voltage waveform is plotted relative to the input in Fig.~P\ref{figP4
 \noindent
 {\bf Ans~:} (i)~ $\rmA_{\rmf}=48$\quad (ii)~ $v_{\rmo}=48$\,mV.
 
+\eject
+
 \item Find the output voltage in the circuit shown below.
-\begin{center}
-{\bf Figure}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/exr4.8.eps}
+\end{figure}
 
 \smallskip
 \noindent
 {\bf Ans~:} $v_{\rmo}=-9.88\,\rmV$.
 
 \item Determine the output voltage in the circuit shown below.
-\begin{center}
-{\bf Figure}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics{chap4/exr4.9.eps}
+\end{figure}
 
 \smallskip
 \noindent
@@ -1668,4 +1927,4 @@ The output voltage waveform is plotted relative to the input in Fig.~P\ref{figP4
 \end{enumerate}
 
 
-\label{1end}
+\label{4end}
