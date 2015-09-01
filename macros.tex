@@ -10,6 +10,12 @@
 
 \newenvironment{corollary}{\penalty-200\medskip\noindent{\bfseries Corollary\;\global\advance\corn by1 \the\corn.}\itshape}{\hspace*{\fill}\par\medskip}
 
+\newtheoremstyle{method}{3pt}{2pt}{}{}%
+{\bfseries}{}{ }{{{\bf #1 #2} :}\;}
+\theoremstyle{method}
+\newtheorem{method}{Method}
+\renewcommand{\themethod}{\Roman{method}}
+
 
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\dt}{dt}
@@ -123,10 +129,10 @@ Note:\;}}{\hspace*{\fill}\par\medskip}
 \def\imp#1{\mbox{\fontsize{11}{12}\selectfont $#1$}}
 
 \makeatletter
-\renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-0.5ex \@plus -0.5ex \@minus -.2ex}%
-                                   {1.3ex \@plus.2ex}%
-                                   {\normalfont\Large\bfseries}}
+%\renewcommand\section{\@startsection {section}{1}{\z@}%
+%                                   {-0.5ex \@plus -0.5ex \@minus -.2ex}%
+%                                   {1.3ex \@plus.2ex}%
+%                                   {\normalfont\Large\bfseries}}
 
 \if@twoside
 \def\ps@headings{%

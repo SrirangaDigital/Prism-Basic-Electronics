@@ -1,4 +1,5 @@
 \documentclass[twoside,11pt,openany]{book}
+\usepackage[all]{xy}
 \usepackage{makeidx,array,multicol,multirow}
 \usepackage{epsfig}
 \usepackage{amsmath,amsthm}
@@ -10,7 +11,7 @@
 \usepackage{dcolumn,lscape}
 \usepackage{color,units,xfrac,mathrsfs}
 \usepackage{url}
-\usepackage{steinmetz,cancel,bm}
+\usepackage{steinmetz,cancel,bm,graphicx}
 
 \renewcommand{\theequation}{\arabic{equation}}
 
@@ -315,14 +316,14 @@ headheight=5mm,headsep=5mm,footskip=.7cm,cropmarks,nopagenumbers]{zwpagelayout}
 %%%%%%%%%%%%%%%%%%%%%%%%%%Table of contents
 \renewcommand\contentsname{Table of Contents}
 \makeatletter
-\renewcommand\section{\@startsection {section}{1}{0mm}%
-                                   {-0.5ex \@plus -0.5ex \@minus -.2ex}%
-                                   {0.8ex \@plus.2ex}%
-                                   {\normalfont\Large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{0mm}%
-                                     {-0.9ex\@plus -1ex \@minus -.2ex}%
-                                     {0.8ex \@plus .2ex}%
-                                     {\normalfont\Large\bfseries}}
+%\renewcommand\section{\@startsection {section}{1}{0mm}%
+%                                   {-0.9ex \@plus -0.5ex \@minus -.2ex}%
+%                                   {0.8ex \@plus.2ex}%
+%                                   {\normalfont\Large\bfseries}}
+%\renewcommand\subsection{\@startsection{subsection}{2}{0mm}%
+%                                     {-0.9ex\@plus -1ex \@minus -.2ex}%
+%                                     {0.8ex \@plus .2ex}%
+%                                     {\normalfont\Large\bfseries}}
 
 \def\@makeschapterhead#1{%
   \vspace*{2.5\p@}%
@@ -394,6 +395,11 @@ headheight=5mm,headsep=5mm,footskip=.7cm,cropmarks,nopagenumbers]{zwpagelayout}
 \setcounter{chapter}{3}
 \input chapter4
 \input chapter5
+\input chapter6
+\setcounter{chapter}{7}
+\input chapter8
+\input chapter9
+\newpage
 
 %\input qpaper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Redefining index

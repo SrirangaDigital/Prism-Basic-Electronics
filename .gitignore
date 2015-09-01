@@ -6,3 +6,10 @@
 *.dvi
 *.idx
 *.aux
+chap4/
+chap5/
+chap6/
+chap8/
+chap9/
+mainfile.tex
+macros.tex
